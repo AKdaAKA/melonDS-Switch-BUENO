@@ -19,10 +19,10 @@ const vec4 Positions[4] = vec4[](
 // NDC (-1, 1) = screen bot-left  → UV (0, 1)
 // NDC ( 1, 1) = screen bot-right → UV (1, 1)
 const vec2 TexCoords[4] = vec2[](
-    vec2(0.0, 1.0),
-    vec2(1.0, 1.0),
     vec2(0.0, 0.0),
-    vec2(1.0, 0.0)
+    vec2(1.0, 0.0),
+    vec2(0.0, 1.0),
+    vec2(1.0, 1.0)
 );
 
 layout(location = 0) out vec2 vTexCoord;

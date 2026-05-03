@@ -23,6 +23,8 @@ u32 stupidTextureNum = 0;
 namespace GPU3D
 {
 
+u32 CurrentUpscaleFactor = 1;
+
 DekoRenderer::DekoRenderer()
     : Renderer3D(false),
     CmdMem(*Gfx::DataHeap, 1024*128)
@@ -145,7 +147,7 @@ void DekoRenderer::Reset()
 
 void DekoRenderer::SetRenderSettings(GPU::RenderSettings& settings)
 {
-
+    CurrentUpscaleFactor = settings.ScaleFactor;
 }
 
 void DekoRenderer::VCount144()
@@ -173,7 +175,18 @@ void DekoRenderer::SetupAttrs(SpanSetupY* span, Polygon* poly, int from, int to)
 
 void DekoRenderer::SetupYSpanDummy(SpanSetupY* span, Polygon* poly, int vertex, int side)
 {
-    s32 x0 = poly->Vertices[vertex]->FinalPosition[0];
+    s32 x0, y0;
+    if (CurrentUpscaleFactor > 1)
+    {
+        x0 = (poly->Vertices[vertex]->HiresPosition[0] * CurrentUpscaleFactor) >> 4;
+        y0 = (poly->Vertices[vertex]->HiresPosition[1] * CurrentUpscaleFactor) >> 4;
+    }
+    else
+    {
+        x0 = GET_X(poly->Vertices[vertex]);
+        y0 = GET_Y(poly->Vertices[vertex]);
+    }
+
     if (side)
     {
         span->DxInitial = -0x40000;
@@ -187,7 +200,7 @@ void DekoRenderer::SetupYSpanDummy(SpanSetupY* span, Polygon* poly, int vertex, 
     span->X0 = span->X1 = x0;
     span->XMin = x0;
     span->XMax = x0;
-    span->Y0 = span->Y1 = poly->Vertices[vertex]->FinalPosition[1];
+    span->Y0 = span->Y1 = y0;
 
     span->Increment = 0;
 
@@ -203,10 +216,20 @@ void DekoRenderer::SetupYSpanDummy(SpanSetupY* span, Polygon* poly, int vertex, 
 
 void DekoRenderer::SetupYSpan(int polynum, SpanSetupY* span, Polygon* poly, int from, int to, u32 y, int side)
 {
-    span->X0 = poly->Vertices[from]->FinalPosition[0];
-    span->X1 = poly->Vertices[to]->FinalPosition[0];
-    span->Y0 = poly->Vertices[from]->FinalPosition[1];
-    span->Y1 = poly->Vertices[to]->FinalPosition[1];
+    if (CurrentUpscaleFactor > 1)
+    {
+        span->X0 = (poly->Vertices[from]->HiresPosition[0] * CurrentUpscaleFactor) >> 4;
+        span->X1 = (poly->Vertices[to]->HiresPosition[0] * CurrentUpscaleFactor) >> 4;
+        span->Y0 = (poly->Vertices[from]->HiresPosition[1] * CurrentUpscaleFactor) >> 4;
+        span->Y1 = (poly->Vertices[to]->HiresPosition[1] * CurrentUpscaleFactor) >> 4;
+    }
+    else
+    {
+        span->X0 = GET_X(poly->Vertices[from]);
+        span->X1 = GET_X(poly->Vertices[to]);
+        span->Y0 = GET_Y(poly->Vertices[from]);
+        span->Y1 = GET_Y(poly->Vertices[to]);
+    }
 
     SetupAttrs(span, poly, from, to);
 
@@ -1011,10 +1034,10 @@ void DekoRenderer::RenderFrame()
             if (nextVR >= nverts) nextVR = 0;
         }
 
-        s32 minX = polygon->Vertices[vtop]->FinalPosition[0];
-        s32 minXY = polygon->Vertices[vtop]->FinalPosition[1];
-        s32 maxX = polygon->Vertices[vtop]->FinalPosition[0];
-        s32 maxXY = polygon->Vertices[vtop]->FinalPosition[1];
+        s32 minX = GET_X(polygon->Vertices[vtop]);
+        s32 minXY = GET_Y(polygon->Vertices[vtop]);
+        s32 maxX = GET_X(polygon->Vertices[vtop]);
+        s32 maxXY = GET_Y(polygon->Vertices[vtop]);
 
         if (ybot == ytop)
         {
@@ -1023,12 +1046,12 @@ void DekoRenderer::RenderFrame()
             RenderPolygons[i].YBot++;
 
             int j = 1;
-            if (polygon->Vertices[j]->FinalPosition[0] < polygon->Vertices[vtop]->FinalPosition[0]) vtop = j;
-            if (polygon->Vertices[j]->FinalPosition[0] > polygon->Vertices[vbot]->FinalPosition[0]) vbot = j;
+            if (GET_X(polygon->Vertices[j]) < GET_X(polygon->Vertices[vtop])) vtop = j;
+            if (GET_X(polygon->Vertices[j]) > GET_X(polygon->Vertices[vbot])) vbot = j;
 
             j = nverts - 1;
-            if (polygon->Vertices[j]->FinalPosition[0] < polygon->Vertices[vtop]->FinalPosition[0]) vtop = j;
-            if (polygon->Vertices[j]->FinalPosition[0] > polygon->Vertices[vbot]->FinalPosition[0]) vbot = j;
+            if (GET_X(polygon->Vertices[j]) < GET_X(polygon->Vertices[vtop])) vtop = j;
+            if (GET_X(polygon->Vertices[j]) > GET_X(polygon->Vertices[vbot])) vbot = j;
 
             assert(numYSpans < MaxYSpanSetups);
             u32 curSpanL = numYSpans;
@@ -1065,9 +1088,9 @@ void DekoRenderer::RenderFrame()
 
             for (u32 y = ytop; y < ybot; y++)
             {
-                if (y >= polygon->Vertices[nextVL]->FinalPosition[1] && curVL != polygon->VBottom)
+                if (y >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
                 {
-                    while (y >= polygon->Vertices[nextVL]->FinalPosition[1] && curVL != polygon->VBottom)
+                    while (y >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
                     {
                         curVL = nextVL;
                         if (polygon->FacingView)
@@ -1084,24 +1107,24 @@ void DekoRenderer::RenderFrame()
                         }
                     }
 
-                    if (polygon->Vertices[curVL]->FinalPosition[0] < minX)
+                    if (GET_X(polygon->Vertices[curVL]) < minX)
                     {
-                        minX = polygon->Vertices[curVL]->FinalPosition[0];
-                        minXY = polygon->Vertices[curVL]->FinalPosition[1];
+                        minX = GET_X(polygon->Vertices[curVL]);
+                        minXY = GET_Y(polygon->Vertices[curVL]);
                     }
-                    if (polygon->Vertices[curVL]->FinalPosition[0] > maxX)
+                    if (GET_X(polygon->Vertices[curVL]) > maxX)
                     {
-                        maxX = polygon->Vertices[curVL]->FinalPosition[0];
-                        maxXY = polygon->Vertices[curVL]->FinalPosition[1];
+                        maxX = GET_X(polygon->Vertices[curVL]);
+                        maxXY = GET_Y(polygon->Vertices[curVL]);
                     }
 
                     assert(numYSpans < MaxYSpanSetups);
                     curSpanL = numYSpans;
                     SetupYSpan(i,&YSpanSetups[numYSpans++], polygon, curVL, nextVL, y, 0);
                 }
-                if (y >= polygon->Vertices[nextVR]->FinalPosition[1] && curVR != polygon->VBottom)
+                if (y >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
                 {
-                    while (y >= polygon->Vertices[nextVR]->FinalPosition[1] && curVR != polygon->VBottom)
+                    while (y >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
                     {
                         curVR = nextVR;
                         if (polygon->FacingView)
@@ -1118,15 +1141,15 @@ void DekoRenderer::RenderFrame()
                         }
                     }
 
-                    if (polygon->Vertices[curVR]->FinalPosition[0] < minX)
+                    if (GET_X(polygon->Vertices[curVR]) < minX)
                     {
-                        minX = polygon->Vertices[curVR]->FinalPosition[0];
-                        minXY = polygon->Vertices[curVR]->FinalPosition[1];
+                        minX = GET_X(polygon->Vertices[curVR]);
+                        minXY = GET_Y(polygon->Vertices[curVR]);
                     }
-                    if (polygon->Vertices[curVR]->FinalPosition[0] > maxX)
+                    if (GET_X(polygon->Vertices[curVR]) > maxX)
                     {
-                        maxX = polygon->Vertices[curVR]->FinalPosition[0];
-                        maxXY = polygon->Vertices[curVR]->FinalPosition[1];
+                        maxX = GET_X(polygon->Vertices[curVR]);
+                        maxXY = GET_Y(polygon->Vertices[curVR]);
                     }
 
                     assert(numYSpans < MaxYSpanSetups);
@@ -1143,25 +1166,25 @@ void DekoRenderer::RenderFrame()
             }
         }
 
-        if (polygon->Vertices[nextVL]->FinalPosition[0] < minX)
+        if (GET_X(polygon->Vertices[nextVL]) < minX)
         {
-            minX = polygon->Vertices[nextVL]->FinalPosition[0];
-            minXY = polygon->Vertices[nextVL]->FinalPosition[1];
+            minX = GET_X(polygon->Vertices[nextVL]);
+            minXY = GET_Y(polygon->Vertices[nextVL]);
         }
-        if (polygon->Vertices[nextVL]->FinalPosition[0] > maxX)
+        if (GET_X(polygon->Vertices[nextVL]) > maxX)
         {
-            maxX = polygon->Vertices[nextVL]->FinalPosition[0];
-            maxXY = polygon->Vertices[nextVL]->FinalPosition[1];
+            maxX = GET_X(polygon->Vertices[nextVL]);
+            maxXY = GET_Y(polygon->Vertices[nextVL]);
         }
-        if (polygon->Vertices[nextVR]->FinalPosition[0] < minX)
+        if (GET_X(polygon->Vertices[nextVR]) < minX)
         {
-            minX = polygon->Vertices[nextVR]->FinalPosition[0];
-            minXY = polygon->Vertices[nextVR]->FinalPosition[1];
+            minX = GET_X(polygon->Vertices[nextVR]);
+            minXY = GET_Y(polygon->Vertices[nextVR]);
         }
-        if (polygon->Vertices[nextVR]->FinalPosition[0] > maxX)
+        if (GET_X(polygon->Vertices[nextVR]) > maxX)
         {
-            maxX = polygon->Vertices[nextVR]->FinalPosition[0];
-            maxXY = polygon->Vertices[nextVR]->FinalPosition[1];
+            maxX = GET_X(polygon->Vertices[nextVR]);
+            maxXY = GET_Y(polygon->Vertices[nextVR]);
         }
 
         RenderPolygons[i].XMin = minX;
@@ -1262,11 +1285,14 @@ void DekoRenderer::RenderFrame()
         meta.FogColor = fogR | (fogG << 8) | (fogB << 16) | (fogA << 24);
     }
     meta.XScroll = RenderXPos;
+    meta.UpscaleFactor = CurrentUpscaleFactor;
     EmuCmdBuf.bindUniformBuffer(DkStage_Compute, 0, Gfx::DataHeap->GpuAddr(MetaUniformMemory), MetaUniformSize);
     EmuCmdBuf.pushConstants(gpuAddrMetaUniform, MetaUniformSize, 0, sizeof(MetaUniform), &meta);
 
     EmuCmdBuf.bindShaders(DkStageFlag_Compute, {&ShaderClearCoarseBinMask});
-    EmuCmdBuf.dispatchCompute(TilesPerLine*TileLines/32, 1, 1);
+    u32 currentTilesPerLine = (256 * CurrentUpscaleFactor) / TileSize;
+    u32 currentTileLines = (192 * CurrentUpscaleFactor) / TileSize;
+    EmuCmdBuf.dispatchCompute((currentTilesPerLine*currentTileLines)/32, 1, 1);
 
     bool wbuffer = false;
     if (numYSpans > 0)
@@ -1284,7 +1310,7 @@ void DekoRenderer::RenderFrame()
 
         // bin polygons
         EmuCmdBuf.bindShaders(DkStageFlag_Compute, {&ShaderBinCombined});
-        EmuCmdBuf.dispatchCompute(((RenderNumPolygons + 31) / 32), 256/CoarseTileW, 192/CoarseTileH);
+        EmuCmdBuf.dispatchCompute(((RenderNumPolygons + 31) / 32), (256*CurrentUpscaleFactor)/CoarseTileW, (192*CurrentUpscaleFactor)/CoarseTileH);
         EmuCmdBuf.barrier(DkBarrier_Primitives, 0);
 
         // calculate list offsets
@@ -1368,7 +1394,7 @@ void DekoRenderer::RenderFrame()
 
     // compose final image
     EmuCmdBuf.bindShaders(DkStageFlag_Compute, {&ShaderDepthBlend[wbuffer]});
-    EmuCmdBuf.dispatchCompute(256/8, 192/8, 1);
+    EmuCmdBuf.dispatchCompute((256*CurrentUpscaleFactor)/8, (192*CurrentUpscaleFactor)/8, 1);
     EmuCmdBuf.barrier(DkBarrier_Primitives, 0);
 
     EmuCmdBuf.bindImages(DkStage_Compute, 0, {dkMakeImageHandle(descriptorOffset_FinalFB)});
@@ -1380,7 +1406,7 @@ void DekoRenderer::RenderFrame()
     if (RenderDispCnt & (1<<5))
         finalPassShader |= 0x1;
     EmuCmdBuf.bindShaders(DkStageFlag_Compute, {&ShaderFinalPass[finalPassShader]});
-    EmuCmdBuf.dispatchCompute(256/32, 192, 1);
+    EmuCmdBuf.dispatchCompute((256*CurrentUpscaleFactor)/32, 192*CurrentUpscaleFactor, 1);
     EmuCmdBuf.barrier(DkBarrier_Primitives, 0);
 
     DkCmdList cmdlist = CmdMem.End(EmuCmdBuf);

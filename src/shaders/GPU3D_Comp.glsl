@@ -125,14 +125,18 @@ const int CoarseTileCountY = 4;
 const int CoarseTileW = CoarseTileCountX * TileSize;
 const int CoarseTileH = CoarseTileCountY * TileSize;
 
-const int FramebufferStride = 256*192;
-const int TilesPerLine = 256/TileSize;
-const int TileLines = 192/TileSize;
+const int MaxUpscaleFactor = 4;
+const int MaxTilesPerLine = (256 * MaxUpscaleFactor) / TileSize;
+const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;
+
+#define FramebufferStride ((256 * UpscaleFactor) * (192 * UpscaleFactor))
+#define TilesPerLine ((256 * UpscaleFactor) / TileSize)
+#define TileLines ((192 * UpscaleFactor) / TileSize)
 
 const int BinStride = 2048/32;
 const int CoarseBinStride = BinStride/32;
 
-const int MaxWorkTiles = TilesPerLine*TileLines*48;
+const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*48;
 const int MaxVariants = 256;
 
 layout (std430, binding = 3)
@@ -145,9 +149,9 @@ buffer BinResultBuffer
     uvec2 UnsortedWorkDescs[MaxWorkTiles];
     uvec2 SortedWork[MaxWorkTiles];
 
-    uint BinnedMaskCoarse[TilesPerLine*TileLines*CoarseBinStride];
-    uint BinnedMask[TilesPerLine*TileLines*BinStride];
-    uint WorkOffsets[TilesPerLine*TileLines*BinStride];
+    uint BinnedMaskCoarse[MaxTilesPerLine*MaxTileLines*CoarseBinStride];
+    uint BinnedMask[MaxTilesPerLine*MaxTileLines*BinStride];
+    uint WorkOffsets[MaxTilesPerLine*MaxTileLines*BinStride];
 };
 
 #if defined(Rasterise) || defined(DepthBlend)
@@ -175,9 +179,9 @@ readonly
 #endif
 buffer RasterResult
 {
-    uint ColorResult[256*192*2];
-    uint DepthResult[256*192*2];
-    uint AttrResult[256*192*2];
+    uint ColorResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
+    uint DepthResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
+    uint AttrResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
 };
 
 layout (std140, binding = 0) uniform MetaUniform
@@ -203,6 +207,7 @@ layout (std140, binding = 0) uniform MetaUniform
     // only used/updated for rasteriation
     uint CurVariant;
     vec2 InvTextureSize;
+    uint UpscaleFactor;
 };
 
 

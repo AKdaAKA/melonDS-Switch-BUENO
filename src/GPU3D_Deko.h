@@ -85,6 +85,7 @@ private:
         // only used/updated for rasteriation
         u32 CurVariant;
         float InvTextureSize[2];
+        u32 UpscaleFactor;
     };
     GpuMemHeap::Allocation MetaUniformMemory;
     const int MetaUniformSize = (sizeof(MetaUniform) + DK_UNIFORM_BUF_ALIGNMENT - 1) & ~(DK_UNIFORM_BUF_ALIGNMENT - 1);
@@ -172,13 +173,17 @@ private:
     static const int CoarseTileW = CoarseTileCountX * TileSize;
     static const int CoarseTileH = CoarseTileCountY * TileSize;
 
+    static const int MaxUpscaleFactor = 4;
+    static const int MaxTilesPerLine = (256 * MaxUpscaleFactor) / TileSize;
+    static const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;
+
     static const int TilesPerLine = 256/TileSize;
     static const int TileLines = 192/TileSize;
 
     static const int BinStride = 2048/32;
     static const int CoarseBinStride = BinStride/32;
 
-    static const int MaxWorkTiles = TilesPerLine*TileLines*48;
+    static const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*48;
     static const int MaxVariants = 256;
 
     struct BinResult
@@ -190,9 +195,9 @@ private:
         u32 UnsortedWorkDescs[MaxWorkTiles*2];
         u32 SortedWork[MaxWorkTiles*2];
 
-        u32 BinnedMaskCoarse[TilesPerLine*TileLines*CoarseBinStride];
-        u32 BinnedMask[TilesPerLine*TileLines*BinStride];
-        u32 WorkOffsets[TilesPerLine*TileLines*BinStride];
+        u32 BinnedMaskCoarse[MaxTilesPerLine*MaxTileLines*CoarseBinStride];
+        u32 BinnedMask[MaxTilesPerLine*MaxTileLines*BinStride];
+        u32 WorkOffsets[MaxTilesPerLine*MaxTileLines*BinStride];
     };
 
     struct Tiles
@@ -204,9 +209,9 @@ private:
 
     struct FinalTiles
     {
-        u32 ColorResult[256*192*2];
-        u32 DepthResult[256*192*2];
-        u32 AttrResult[256*192*2];
+        u32 ColorResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
+        u32 DepthResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
+        u32 AttrResult[(256 * MaxUpscaleFactor)*(192 * MaxUpscaleFactor)*2];
     };
 
     // eh those are pretty bad guesses
