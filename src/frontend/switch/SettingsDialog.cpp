@@ -15,6 +15,12 @@
 #include "RetroAchievements.h"
 #include "NotificationSystem.h"
 
+// Forward declaration for live overclock application
+namespace Overclocking
+{
+    void ApplyOverclock(int setting);
+}
+
 namespace {
     static u64 PlatformKeysHeld = 0;
     static u64 PlatformKeysDown = 0;
@@ -671,7 +677,13 @@ void DoGui(BoxGui::Frame& parent)
                 DoCheckbox(settingsFrame, settingsSkewer, "Boot directly (Skip bios)", bootDirectly);
                 Config::DirectBoot = bootDirectly;
             }
+            static int lastAppliedOverclock = -1;
             DoCombobox(settingsFrame, settingsSkewer, "Switch CPU clock", "1020 MHz\0" "1224 MHz\0" "1581 MHz\0" "1785 MHz\0" "918 Mhz\0" "816 Mhz\0" "714 Mhz\0", Config::SwitchOverclock);
+            if (Config::SwitchOverclock != lastAppliedOverclock)
+            {
+                Overclocking::ApplyOverclock(Config::SwitchOverclock);
+                lastAppliedOverclock = Config::SwitchOverclock;
+            }
         }
         {
             bool jitEnable = Config::JIT_Enable;
@@ -750,7 +762,13 @@ void DoGui(BoxGui::Frame& parent)
             DoCheckbox(settingsFrame, settingsSkewer, "Integer scaling", integerScaling);
             Config::IntegerScaling = integerScaling;
             DoCombobox(settingsFrame, settingsSkewer, "Filtering", "Nearest\0Linear\0", Config::Filtering);
-            DoCombobox(settingsFrame, settingsSkewer, "Upscaler (NOT WORKING)", "1x\0002x\0003x\0004x\0", Config::upscaleFactor);
+            static int lastAppliedUpscale = -1;
+            DoCombobox(settingsFrame, settingsSkewer, "Upscaler", "1x\0002x\0003x\0004x\0", Config::upscaleFactor);
+            if (Config::upscaleFactor != lastAppliedUpscale)
+            {
+                Emulation::ApplyUpscaleFactor();
+                lastAppliedUpscale = Config::upscaleFactor;
+            }
         }
         Emulation::UpdateScreenLayout();
         break;

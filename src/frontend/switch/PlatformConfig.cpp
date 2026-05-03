@@ -60,7 +60,7 @@ ConfigEntry PlatformConfigFile[] =
     {"ScreenSwap",              0, &ScreenSwap,             0, NULL, 0},
     {"ScreenSizing",            0, &ScreenSizing,           0, NULL, 0},
     {"Filtering",               0, &Filtering,              1, NULL, 0},
-    {"upscaleFactor",           0, &upscaleFactor,          1, NULL, 0},
+    {"upscaleFactor",           0, &upscaleFactor,          0, NULL, 0},
     {"IntegerScaling",          0, &IntegerScaling,         0, NULL, 0},
     {"ScreenAspectTop",         0, &ScreenAspectTop,        0, NULL, 0},
     {"ScreenAspectBot",         0, &ScreenAspectBot,        0, NULL, 0},

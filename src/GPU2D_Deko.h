@@ -28,10 +28,26 @@ public:
     {
         return FinalFramebuffers[front][num];
     }
+    // Returns the upscaled framebuffer if upscaleFactor > 1, otherwise the native one
+    dk::Image& GetDisplayFramebuffer(u32 front, u32 num)
+    {
+        if (CurrentUpscaleFactor > 1)
+            return UpscaledFramebuffers[front][num];
+        return FinalFramebuffers[front][num];
+    }
     dk::Image& Get3DFramebuffer()
     {
         return _3DFramebuffer;
     }
+
+    // Returns the pixel dimensions of the display framebuffer
+    u32 GetDisplayWidth()  const { return 256 * CurrentUpscaleFactor; }
+    u32 GetDisplayHeight() const { return 192 * CurrentUpscaleFactor; }
+
+    // Call to change upscale factor (1-4). Recreates upscaled framebuffers.
+    void SetUpscaleFactor(int factor);
+
+    int CurrentUpscaleFactor = 1;
 
     dk::Fence FramebufferReady[2] = {};
     dk::Fence FramebufferPresented[2] = {};
@@ -40,6 +56,11 @@ private:
 
     dk::Image FinalFramebuffers[2][2];
     GpuMemHeap::Allocation FinalFramebufferMemory;
+
+    // Upscaled output framebuffers (only allocated when upscaleFactor > 1)
+    dk::Image UpscaledFramebuffers[2][2];
+    GpuMemHeap::Allocation UpscaledFramebufferMemory;
+    void RecreateUpscaledFramebuffers();
 
     dk::Image _3DFramebuffer;
     GpuMemHeap::Allocation _3DFramebufferMemory;
@@ -92,7 +113,12 @@ private:
         descriptorOffset_DisabledBG,
         descriptorOffset_MosaicTable,
         descriptorOffset_OBJWindow,
-        descriptorOffset_Count = descriptorOffset_OBJWindow+2
+        // Two slots: one per DS screen (top=0, bottom=1).
+        // Both are initialized when Unit A runs so the GPU sees stable values
+        // for both upscale draws in the single shared command buffer.
+        descriptorOffset_FinalFb0 = descriptorOffset_OBJWindow+2,
+        descriptorOffset_FinalFb1,
+        descriptorOffset_Count = descriptorOffset_FinalFb1+1
     };
     GpuMemHeap::Allocation ImageDescriptors;
     GpuMemHeap::Allocation SamplerDescriptors;
@@ -127,6 +153,8 @@ private:
     dk::Shader ShaderComposeBGOBJ;
     dk::Shader ShaderComposeBGOBJDirectBitmapOnly;
     dk::Shader ShaderComposeBGOBJShowBitmap;
+    dk::Shader ShaderUpscale;      // passthrough fsh for the upscale render pass
+    dk::Shader ShaderUpscaleQuad;  // vsh that outputs [0,1] UVs (avoids tiling)
     dk::Shader ShaderOBJRegular;
     dk::Shader ShaderOBJAffine;
     dk::Shader ShaderOBJ4bpp;

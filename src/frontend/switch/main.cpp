@@ -259,12 +259,19 @@ void Init()
     GPU::RenderSettings settings{true, 1, false};
     GPU::SetRenderSettings(0, settings);
 
+    // Apply upscaling setting (upscaleFactor is a 0-based index: 0=1x, 1=2x, 2=3x, 3=4x)
+    auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
+    int clampedScale = std::max(1, std::min(4, Config::upscaleFactor + 1));
+    dekoRenderer->SetUpscaleFactor(clampedScale);
+
     for (int j = 0; j < 2; j++)
     {
         for (int i = 0; i < 2; i++)
         {
-            FramebufferTextures[j][i] = Gfx::TextureCreateExternal(256, 192, 
-                ((GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get())->GetFramebuffer(j, i));
+            u32 w = dekoRenderer->GetDisplayWidth();
+            u32 h = dekoRenderer->GetDisplayHeight();
+            FramebufferTextures[j][i] = Gfx::TextureCreateExternal(w, h,
+                dekoRenderer->GetDisplayFramebuffer(j, i));
         }
     }
 
@@ -750,12 +757,15 @@ void UpdateAndDraw(u64& keysDown, u64& keysUp)
     {
         Gfx::WaitForFenceReady(((GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get())->FramebufferReady[GPU::FrontBuffer]);
         Gfx::SetSampler((Config::Filtering == 0 ? Gfx::sampler_Nearest : Gfx::sampler_Linear) | Gfx::sampler_ClampToEdge);
+        auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
+        float uvW = (float)dekoRenderer->GetDisplayWidth();
+        float uvH = (float)dekoRenderer->GetDisplayHeight();
         for (int i = 0; i < ScreensVisible; i++)
         {
             Gfx::DrawRectangle(FramebufferTextures[GPU::FrontBuffer][ScreenKinds[i]], 
                 ScreenPoints[i][0], ScreenPoints[i][1],
                 ScreenPoints[i][2], ScreenPoints[i][3],
-                {0.f, 0.f}, {256.f, 192.f});
+                {0.f, 0.f}, {uvW, uvH});
         }
         
         Gfx::SignalFence(((GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get())->FramebufferPresented[GPU::FrontBuffer]);
@@ -987,6 +997,33 @@ void UpdateScreenLayout()
             BotScreenRect.Size = upperBounds - lowerBounds;
         }
     }
+}
+
+void ApplyUpscaleFactor()
+{
+    if (State == emuState_Nothing)
+        return;
+
+    auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
+    int newFactor = std::max(1, std::min(4, Config::upscaleFactor + 1));
+    if (newFactor == dekoRenderer->CurrentUpscaleFactor)
+        return;
+
+    // Tear down old texture handles
+    for (u32 j = 0; j < 2; j++)
+        for (u32 i = 0; i < 2; i++)
+            Gfx::TextureDelete(FramebufferTextures[j][i]);
+
+    // Rebuild at new scale
+    dekoRenderer->SetUpscaleFactor(newFactor);
+    for (int j = 0; j < 2; j++)
+        for (int i = 0; i < 2; i++)
+        {
+            u32 w = dekoRenderer->GetDisplayWidth();
+            u32 h = dekoRenderer->GetDisplayHeight();
+            FramebufferTextures[j][i] = Gfx::TextureCreateExternal(w, h,
+                dekoRenderer->GetDisplayFramebuffer(j, i));
+        }
 }
 
 }

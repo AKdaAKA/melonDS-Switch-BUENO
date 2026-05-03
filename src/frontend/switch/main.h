@@ -33,6 +33,7 @@ void SetPause(bool pause);
 void Stop();
 void Reset();
 void UpdateScreenLayout();
+void ApplyUpscaleFactor();  // Rebuilds framebuffer textures at new upscale factor
 
 extern bool LidClosed;
 

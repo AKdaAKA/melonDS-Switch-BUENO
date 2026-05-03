@@ -25,7 +25,7 @@ DekoRenderer::DekoRenderer() :
     dk::ImageLayout finalFbLayout;
     dk::ImageLayoutMaker{Gfx::Device}
         .setDimensions(256, 192)
-        .setFlags(DkImageFlags_UsageRender)
+        .setFlags(DkImageFlags_UsageRender | DkImageFlags_Usage2DEngine | DkImageFlags_UsageLoadStore)
         .setFormat(DkImageFormat_RGBA8_Unorm)
         .initialize(finalFbLayout);
     FinalFramebufferMemory = Gfx::TextureHeap->Alloc(finalFbLayout.getSize() * 4, finalFbLayout.getAlignment());
@@ -169,6 +169,8 @@ DekoRenderer::DekoRenderer() :
     Gfx::LoadShader("romfs:/shaders/ComposeBGOBJ_fsh.dksh", ShaderComposeBGOBJ);
     Gfx::LoadShader("romfs:/shaders/ComposeBGOBJDirectBitmapOnly_fsh.dksh", ShaderComposeBGOBJDirectBitmapOnly);
     Gfx::LoadShader("romfs:/shaders/ComposeBGOBJShowBitmap_fsh.dksh", ShaderComposeBGOBJShowBitmap);
+    Gfx::LoadShader("romfs:/shaders/Upscale_fsh.dksh", ShaderUpscale);
+    Gfx::LoadShader("romfs:/shaders/UpscaleQuad_vsh.dksh", ShaderUpscaleQuad);
     Gfx::LoadShader("romfs:/shaders/BGText4bpp_fsh.dksh", ShaderBGText4Bpp[0]);
     Gfx::LoadShader("romfs:/shaders/BGText4bppMosaic_fsh.dksh", ShaderBGText4Bpp[1]);
     Gfx::LoadShader("romfs:/shaders/BGText8bpp_fsh.dksh", ShaderBGText8Bpp[0]);
@@ -215,6 +217,54 @@ DekoRenderer::DekoRenderer() :
 
 DekoRenderer::~DekoRenderer()
 {
+    if (CurrentUpscaleFactor > 1 && UpscaledFramebufferMemory.Size > 0)
+        Gfx::TextureHeap->Free(UpscaledFramebufferMemory);
+}
+
+void DekoRenderer::RecreateUpscaledFramebuffers()
+{
+    // Free old allocation if present
+    if (UpscaledFramebufferMemory.Size > 0)
+    {
+        EmuQueue.waitIdle();
+        Gfx::TextureHeap->Free(UpscaledFramebufferMemory);
+        UpscaledFramebufferMemory = {};
+    }
+
+    if (CurrentUpscaleFactor <= 1)
+        return;
+
+    u32 w = 256 * CurrentUpscaleFactor;
+    u32 h = 192 * CurrentUpscaleFactor;
+
+    dk::ImageLayout upscaledLayout;
+    dk::ImageLayoutMaker{Gfx::Device}
+        .setDimensions(w, h)
+        .setFlags(DkImageFlags_UsageRender | DkImageFlags_Usage2DEngine | DkImageFlags_UsageLoadStore)
+        .setFormat(DkImageFormat_RGBA8_Unorm)
+        .initialize(upscaledLayout);
+
+    UpscaledFramebufferMemory = Gfx::TextureHeap->Alloc(upscaledLayout.getSize() * 4, upscaledLayout.getAlignment());
+    for (int j = 0; j < 2; j++)
+        for (int i = 0; i < 2; i++)
+            UpscaledFramebuffers[j][i].initialize(upscaledLayout,
+                Gfx::TextureHeap->MemBlock,
+                UpscaledFramebufferMemory.Offset + upscaledLayout.getSize() * (i + j * 2));
+}
+
+void DekoRenderer::SetUpscaleFactor(int factor)
+{
+    if (factor < 1) factor = 1;
+    if (factor > 4) factor = 4;
+    if (factor == CurrentUpscaleFactor)
+        return;
+
+    // Wait for GPU to be idle before reallocating textures
+    EmuQueue.waitIdle();
+    Gfx::PresentQueue.waitIdle();
+
+    CurrentUpscaleFactor = factor;
+    RecreateUpscaledFramebuffers();
 }
 
 template <u32 Size>
@@ -1992,6 +2042,58 @@ void DekoRenderer::ComposeBGOBJ()
     ComposeRegions[CurUnit->Num].clear();
 
     EmuCmdBuf.barrier(DkBarrier_Fragments, DkInvalidateFlags_Image);
+
+    // If upscaling is enabled, scale the native 256x192 FinalFramebuffer into
+    // the UpscaledFramebuffer via a fullscreen-quad render pass.
+    if (CurrentUpscaleFactor > 1)
+    {
+        // screenIdx: which FinalFramebuffer/UpscaledFramebuffer slot this unit renders into.
+        // Matches the index used by ComposeBGOBJ above (line 1892).
+        int screenIdx = CurUnit->Num == UnitAIsTop;
+
+        u32 w = 256u * (u32)CurrentUpscaleFactor;
+        u32 h = 192u * (u32)CurrentUpscaleFactor;
+
+        // On Unit A's pass (Num==0), initialize BOTH FinalFb descriptor slots at once.
+        // Both CPU writes happen here before any GPU draw commands are issued for either
+        // upscale pass. The single command buffer is only submitted once (by Unit B), so
+        // both draws see consistent, stable descriptors when the GPU executes them.
+        if (CurUnit->Num == 0)
+        {
+            dk::ImageDescriptor* imageDescriptors = Gfx::DataHeap->CpuAddr<dk::ImageDescriptor>(ImageDescriptors);
+            imageDescriptors[descriptorOffset_FinalFb0].initialize(
+                dk::ImageView{FinalFramebuffers[GPU::FrontBuffer^1][0]});
+            imageDescriptors[descriptorOffset_FinalFb1].initialize(
+                dk::ImageView{FinalFramebuffers[GPU::FrontBuffer^1][1]});
+            // Rebind so the GPU cache sees both updated slots.
+            EmuCmdBuf.bindImageDescriptorSet(Gfx::DataHeap->GpuAddr(ImageDescriptors), descriptorOffset_Count);
+        }
+
+        // Each unit's upscale draw uses its own stable descriptor slot.
+        u32 fbDescSlot = (screenIdx == 0) ? descriptorOffset_FinalFb0 : descriptorOffset_FinalFb1;
+
+        // Bind the upscaled framebuffer as the render target
+        dk::ImageView upscaledTarget{UpscaledFramebuffers[GPU::FrontBuffer^1][screenIdx]};
+        EmuCmdBuf.bindRenderTargets({&upscaledTarget});
+
+        // Full viewport/scissor covering the upscaled size
+        DkViewport upscaleViewport = {0.f, 0.f, (float)w, (float)h, 0.f, 1.f};
+        EmuCmdBuf.setViewports(0, {upscaleViewport});
+        DkScissor upscaleScissor = {0, 0, w, h};
+        EmuCmdBuf.setScissors(0, {upscaleScissor});
+
+        // UpscaleQuad_vsh outputs proper [0,1] UVs; Upscale_fsh is a simple passthrough.
+        EmuCmdBuf.bindTextures(DkStage_Fragment, 0,
+            {dkMakeTextureHandle(fbDescSlot, 0)});
+        EmuCmdBuf.bindShaders(DkStageFlag_GraphicsMask,
+            {&ShaderUpscaleQuad, &ShaderUpscale});
+        EmuCmdBuf.draw(DkPrimitive_TriangleStrip, 4, 1, 0, 0);
+
+        EmuCmdBuf.barrier(DkBarrier_Fragments, DkInvalidateFlags_Image);
+
+        // Restore descriptor set for subsequent draws (e.g. intermediate fb discards).
+        EmuCmdBuf.bindImageDescriptorSet(Gfx::DataHeap->GpuAddr(ImageDescriptors), descriptorOffset_Count);
+    }
 
     for (int i = 0; i < 5; i++)
     {

@@ -208,6 +208,7 @@ void TextureDelete(u32 idx)
     if (!texture.External)
         TextureHeap->Free(texture.GpuMem);
 
+    texture.ImageDescriptorIdx = -1; // reset so recycled slots re-register their new image
     Textures.Free(idx);
 }
 
