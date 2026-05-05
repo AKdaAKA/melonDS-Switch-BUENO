@@ -395,17 +395,22 @@ void InitRenderer(int renderer)
         {
             // Fallback on software renderer
             renderer = 0;
+            CurGLCompositor.reset();
             GPU3D::CurrentRenderer = std::make_unique<GPU3D::SoftRenderer>();
             GPU3D::CurrentRenderer->Init();
         }
-        GPU3D::CurrentRenderer = std::make_unique<GPU3D::GLRenderer>();
-        if (!GPU3D::CurrentRenderer->Init())
+        else
         {
-            // Fallback on software renderer
-            CurGLCompositor->DeInit();
-            CurGLCompositor.reset();
-            renderer = 0;
-            GPU3D::CurrentRenderer = std::make_unique<GPU3D::SoftRenderer>();
+            GPU3D::CurrentRenderer = std::make_unique<GPU3D::GLRenderer>();
+            if (!GPU3D::CurrentRenderer->Init())
+            {
+                // Fallback on software renderer
+                CurGLCompositor->DeInit();
+                CurGLCompositor.reset();
+                renderer = 0;
+                GPU3D::CurrentRenderer = std::make_unique<GPU3D::SoftRenderer>();
+                GPU3D::CurrentRenderer->Init();
+            }
         }
     }
     else

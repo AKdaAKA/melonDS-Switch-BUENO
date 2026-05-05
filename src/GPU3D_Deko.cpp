@@ -23,6 +23,9 @@ u32 stupidTextureNum = 0;
 namespace GPU3D
 {
 
+#define GET_X(v) ((v)->FinalPosition[0])
+#define GET_Y(v) ((v)->FinalPosition[1])
+
 u32 CurrentUpscaleFactor = 1;
 
 DekoRenderer::DekoRenderer()
@@ -147,7 +150,7 @@ void DekoRenderer::Reset()
 
 void DekoRenderer::SetRenderSettings(GPU::RenderSettings& settings)
 {
-    CurrentUpscaleFactor = settings.ScaleFactor;
+    CurrentUpscaleFactor = settings.GL_ScaleFactor;
 }
 
 void DekoRenderer::VCount144()
@@ -183,8 +186,8 @@ void DekoRenderer::SetupYSpanDummy(SpanSetupY* span, Polygon* poly, int vertex, 
     }
     else
     {
-        x0 = GET_X(poly->Vertices[vertex]);
-        y0 = GET_Y(poly->Vertices[vertex]);
+        x0 = poly->Vertices[vertex]->FinalPosition[0];
+        y0 = poly->Vertices[vertex]->FinalPosition[1];
     }
 
     if (side)
@@ -225,10 +228,10 @@ void DekoRenderer::SetupYSpan(int polynum, SpanSetupY* span, Polygon* poly, int 
     }
     else
     {
-        span->X0 = GET_X(poly->Vertices[from]);
-        span->X1 = GET_X(poly->Vertices[to]);
-        span->Y0 = GET_Y(poly->Vertices[from]);
-        span->Y1 = GET_Y(poly->Vertices[to]);
+        span->X0 = poly->Vertices[from]->FinalPosition[0];
+        span->X1 = poly->Vertices[to]->FinalPosition[0];
+        span->Y0 = poly->Vertices[from]->FinalPosition[1];
+        span->Y1 = poly->Vertices[to]->FinalPosition[1];
     }
 
     SetupAttrs(span, poly, from, to);
@@ -1034,10 +1037,10 @@ void DekoRenderer::RenderFrame()
             if (nextVR >= nverts) nextVR = 0;
         }
 
-        s32 minX = GET_X(polygon->Vertices[vtop]);
-        s32 minXY = GET_Y(polygon->Vertices[vtop]);
-        s32 maxX = GET_X(polygon->Vertices[vtop]);
-        s32 maxXY = GET_Y(polygon->Vertices[vtop]);
+        s32 minX = polygon->Vertices[vtop]->FinalPosition[0];
+        s32 minXY = polygon->Vertices[vtop]->FinalPosition[1];
+        s32 maxX = polygon->Vertices[vtop]->FinalPosition[0];
+        s32 maxXY = polygon->Vertices[vtop]->FinalPosition[1];
 
         if (ybot == ytop)
         {

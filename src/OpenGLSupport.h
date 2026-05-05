@@ -32,7 +32,6 @@
 #define glBindFragDataLocation(...)
 #define glDepthRange glDepthRangef
 #define glClearDepth glClearDepthf
-#define glMapBuffer(target, access) glMapBufferRange(target, 0, 8192, 0x0002 /* GL_MAP_WRITE_BIT */)
 #else
 #include <epoxy/gl.h>
 #endif

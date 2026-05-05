@@ -1172,9 +1172,9 @@ void GLRenderer::RenderFrame()
     ShaderConfig.uFogShift = RenderFogShift;
 
     glBindBuffer(GL_UNIFORM_BUFFER, ShaderConfigUBO);
-    void* unibuf = glMapBuffer(GL_UNIFORM_BUFFER, GL_WRITE_ONLY);
-    if (unibuf) memcpy(unibuf, &ShaderConfig, sizeof(ShaderConfig));
-    glUnmapBuffer(GL_UNIFORM_BUFFER);
+    glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(ShaderConfig), &ShaderConfig);
+    // Switch Mesa safe update: use SubData instead of mapping
+    // glUnmapBuffer(GL_UNIFORM_BUFFER);
 
     // SUCKY!!!!!!!!!!!!!!!!!!
     // TODO: detect when VRAM blocks are modified!

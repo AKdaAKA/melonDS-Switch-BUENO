@@ -125,13 +125,13 @@ const int CoarseTileCountY = 4;
 const int CoarseTileW = CoarseTileCountX * TileSize;
 const int CoarseTileH = CoarseTileCountY * TileSize;
 
-const int MaxUpscaleFactor = 4;
+const int MaxUpscaleFactor = 1;
 const int MaxTilesPerLine = (256 * MaxUpscaleFactor) / TileSize;
 const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;
 
-#define FramebufferStride ((256 * UpscaleFactor) * (192 * UpscaleFactor))
-#define TilesPerLine ((256 * UpscaleFactor) / TileSize)
-#define TileLines ((192 * UpscaleFactor) / TileSize)
+#define FramebufferStride ((256 * int(UpscaleFactor)) * (192 * int(UpscaleFactor)))
+#define TilesPerLine ((256 * int(UpscaleFactor)) / TileSize)
+#define TileLines ((192 * int(UpscaleFactor)) / TileSize)
 
 const int BinStride = 2048/32;
 const int CoarseBinStride = BinStride/32;
