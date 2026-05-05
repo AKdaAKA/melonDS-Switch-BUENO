@@ -76,10 +76,18 @@ else()
 endif()
 
 option(ENABLE_OGLRENDERER "Enable OpenGL renderer" ON)
+option(SWITCH_MESA_ENABLED "Use switch-mesa for OpenGL on Switch" OFF)
+
+if (SWITCH_MESA_ENABLED)
+    add_definitions(-DSWITCH_MESA_ENABLED)
+    include_directories(/opt/devkitpro/portlibs/switch/include)
+    message(STATUS "switch-mesa OpenGL support ENABLED")
+endif()
 
 if (ENABLE_OGLRENDERER)
     add_definitions(-DOGLRENDERER_ENABLED)
 endif()
+
 
 if (ARCHITECTURE STREQUAL ARM64)
 	option(ENABLE_NEONSOFTGPU "Enable NEON GPU" ON)

@@ -81,7 +81,18 @@ else()
     endif()
 endif()
 
-target_link_libraries(melonDS.elf curl z)
+target_link_libraries(melonDS.elf curl z nx)
+
+if (SWITCH_MESA_ENABLED)
+    target_link_libraries(melonDS.elf
+        /opt/devkitpro/portlibs/switch/lib/libGLESv2.a
+        /opt/devkitpro/portlibs/switch/lib/libEGL.a
+        /opt/devkitpro/portlibs/switch/lib/libglapi.a
+        /opt/devkitpro/portlibs/switch/lib/libdrm_nouveau.a
+        nx
+    )
+    target_include_directories(melonDS.elf PUBLIC /opt/devkitpro/portlibs/switch/include)
+endif()
 
 target_include_directories(melonDS.elf PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 target_include_directories(melonDS.elf PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/..")

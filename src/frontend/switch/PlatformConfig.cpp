@@ -17,6 +17,7 @@ int ScreenSwap;
 int ScreenSizing;
 int Filtering;
 int upscaleFactor;
+int Renderer3D;
 int IntegerScaling;
 int ScreenAspectTop;
 int ScreenAspectBot;
@@ -61,6 +62,7 @@ ConfigEntry PlatformConfigFile[] =
     {"ScreenSizing",            0, &ScreenSizing,           0, NULL, 0},
     {"Filtering",               0, &Filtering,              1, NULL, 0},
     {"upscaleFactor",           0, &upscaleFactor,          0, NULL, 0},
+    {"Renderer3D",              0, &Renderer3D,             0, NULL, 0},
     {"IntegerScaling",          0, &IntegerScaling,         0, NULL, 0},
     {"ScreenAspectTop",         0, &ScreenAspectTop,        0, NULL, 0},
     {"ScreenAspectBot",         0, &ScreenAspectBot,        0, NULL, 0},

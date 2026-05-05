@@ -358,8 +358,9 @@ void GLRenderer::SetRenderSettings(GPU::RenderSettings& settings)
 
     glBindFramebuffer(GL_FRAMEBUFFER, FramebufferID[0]);
 
-    glBindBuffer(GL_PIXEL_PACK_BUFFER, PixelbufferID);
-    glBufferData(GL_PIXEL_PACK_BUFFER, 256*192*4, NULL, GL_DYNAMIC_READ);
+    // Switch-mesa safe readback: Don't use PBOs
+    // glBindBuffer(GL_PIXEL_PACK_BUFFER, PixelbufferID);
+    // glBufferData(GL_PIXEL_PACK_BUFFER, 256*192*4, NULL, GL_DYNAMIC_READ);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -1116,8 +1117,9 @@ void GLRenderer::RenderFrame()
 {
     CurShaderID = -1;
 
-    glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
-    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FramebufferID[FrontBuffer]);
+    // Do NOT bind framebuffer 0 (the default window framebuffer)
+    // In a surfaceless EGL context, FBO 0 does not exist and crashes the driver.
+    glBindFramebuffer(GL_FRAMEBUFFER, FramebufferID[FrontBuffer]);
 
     ShaderConfig.uScreenSize[0] = ScreenW;
     ShaderConfig.uScreenSize[1] = ScreenH;
@@ -1299,20 +1301,18 @@ void GLRenderer::PrepareCaptureFrame()
     glBlitFramebuffer(0, 0, ScreenW, ScreenH, 0, 0, 256, 192, GL_COLOR_BUFFER_BIT, GL_NEAREST);
 
     glBindFramebuffer(GL_READ_FRAMEBUFFER, FramebufferID[3]);
-    glReadPixels(0, 0, 256, 192, GL_BGRA, GL_UNSIGNED_BYTE, NULL);
+    
+    // Switch-mesa safe readback: Disable PBO and read directly into CPU array
+    glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
+    glReadPixels(0, 0, 256, 192, GL_BGRA, GL_UNSIGNED_BYTE, &Framebuffer[0]);
 }
 
 u32* GLRenderer::GetLine(int line)
 {
     int stride = 256;
 
-    if (line == 0)
-    {
-        u8* data = (u8*)glMapBuffer(GL_PIXEL_PACK_BUFFER, GL_READ_ONLY);
-        if (data) memcpy(&Framebuffer[stride*0], data, 4*stride*192);
-        glUnmapBuffer(GL_PIXEL_PACK_BUFFER);
-    }
-
+    // No need to map buffer anymore, Framebuffer is already populated
+    
     u64* ptr = (u64*)&Framebuffer[stride * line];
     for (int i = 0; i < stride; i+=2)
     {

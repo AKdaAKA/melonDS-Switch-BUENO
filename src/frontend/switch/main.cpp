@@ -8,6 +8,13 @@
 
 #include <switch.h>
 
+#ifdef SWITCH_MESA_ENABLED
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
+#define GL_GLEXT_PROTOTYPES
+#include <GL/gl.h>
+#endif
+
 #include "NDS.h"
 #include "GPU.h"
 #include "GPU2D_Deko.h"
@@ -252,16 +259,116 @@ void AudioOutput(void *args)
     }
 }
 
+// --- EGL Context Management ---
+#ifdef SWITCH_MESA_ENABLED
+static EGLDisplay s_EglDisplay = EGL_NO_DISPLAY;
+static EGLContext s_EglContext = EGL_NO_CONTEXT;
+static EGLSurface s_EglSurface = EGL_NO_SURFACE;
+
+static int s_EglFailStep = 0; // Which step failed (shown in overlay)
+
+bool InitEGLContext()
+{
+    s_EglFailStep = 0;
+
+    // Write a log file so we can diagnose failures via FTP
+    FILE* log = fopen("/switch/melonDS/egl_log.txt", "w");
+    auto logf = [&](const char* msg) { if (log) { fprintf(log, "%s\n", msg); fflush(log); } };
+
+    logf("InitEGLContext started");
+
+    s_EglDisplay = eglGetDisplay(EGL_DEFAULT_DISPLAY);
+    if (s_EglDisplay == EGL_NO_DISPLAY) { s_EglFailStep = 1; logf("FAIL step 1: eglGetDisplay"); if(log) fclose(log); return false; }
+    logf("Step 1 OK: eglGetDisplay");
+
+    if (!eglInitialize(s_EglDisplay, nullptr, nullptr)) { s_EglFailStep = 2; logf("FAIL step 2: eglInitialize"); if(log) fclose(log); return false; }
+    logf("Step 2 OK: eglInitialize");
+
+    if (!eglBindAPI(EGL_OPENGL_API)) { s_EglFailStep = 3; logf("FAIL step 3: eglBindAPI"); if(log) fclose(log); return false; }
+    logf("Step 3 OK: eglBindAPI");
+
+    // Keep it as simple as possible. We don't need depth/stencil here because 
+    // melonDS uses its own internal FBOs for 3D rendering anyway.
+    static const EGLint configAttribs[] = {
+        EGL_SURFACE_TYPE, EGL_WINDOW_BIT,
+        EGL_RED_SIZE,   8,
+        EGL_GREEN_SIZE, 8,
+        EGL_BLUE_SIZE,  8,
+        EGL_ALPHA_SIZE, 8,
+        EGL_NONE
+    };
+    EGLConfig config; EGLint numConfigs = 0;
+    eglChooseConfig(s_EglDisplay, configAttribs, &config, 1, &numConfigs);
+    if (numConfigs == 0) {
+        s_EglFailStep = 4;
+        logf("FAIL step 4: eglChooseConfig (0 configs)");
+        if(log) fclose(log);
+        return false;
+    }
+    logf("Step 4 OK: eglChooseConfig");
+
+    // Try OpenGL 3.2 for better switch-mesa 20.1 compatibility
+    static const EGLint contextAttribs[] = {
+        EGL_CONTEXT_MAJOR_VERSION, 3, EGL_CONTEXT_MINOR_VERSION, 2, EGL_NONE
+    };
+    s_EglContext = eglCreateContext(s_EglDisplay, config, EGL_NO_CONTEXT, contextAttribs);
+    if (s_EglContext == EGL_NO_CONTEXT) { s_EglFailStep = 6; logf("FAIL step 6: eglCreateContext"); if(log) fclose(log); return false; }
+    logf("Step 6 OK: eglCreateContext");
+
+    // Attempt a surfaceless context (bypasses PBuffer and doesn't conflict with deko3d)
+    if (!eglMakeCurrent(s_EglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, s_EglContext)) { 
+        s_EglFailStep = 7; 
+        logf("FAIL step 7: eglMakeCurrent (EGL_NO_SURFACE failed)"); 
+        if(log) fclose(log); 
+        return false; 
+    }
+    logf("SUCCESS: EGL surfaceless context is live!");
+    if (log) fclose(log);
+    return true;
+}
+
+void DeInitEGLContext()
+{
+    if (s_EglDisplay != EGL_NO_DISPLAY)
+    {
+        eglMakeCurrent(s_EglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+        if (s_EglContext != EGL_NO_CONTEXT) eglDestroyContext(s_EglDisplay, s_EglContext);
+        if (s_EglSurface != EGL_NO_SURFACE) eglDestroySurface(s_EglDisplay, s_EglSurface);
+        eglTerminate(s_EglDisplay);
+    }
+}
+#else
+// Stub when switch-mesa is not available
+bool InitEGLContext() { return false; }
+void DeInitEGLContext() {}
+#endif
+// ---------------------------------
+
 void Init()
 {
     NDS::Init();
-    GPU::InitRenderer(0);
-    GPU::RenderSettings settings{true, 1, false};
-    GPU::SetRenderSettings(0, settings);
+
+    int renderer = Config::Renderer3D;
+
+    // If OpenGL is requested, create an EGL context first
+    if (renderer == 1)
+    {
+        if (!InitEGLContext())
+        {
+            // EGL failed, fall back to Deko3D silently
+            renderer = 0;
+        }
+    }
+
+    GPU::InitRenderer(renderer);
 
     // Apply upscaling setting (upscaleFactor is a 0-based index: 0=1x, 1=2x, 2=3x, 3=4x)
-    auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
     int clampedScale = std::max(1, std::min(4, Config::upscaleFactor + 1));
+
+    GPU::RenderSettings settings{true, clampedScale, false};
+    GPU::SetRenderSettings(renderer, settings);
+
+    auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
     dekoRenderer->SetUpscaleFactor(clampedScale);
 
     for (int j = 0; j < 2; j++)
@@ -810,7 +917,19 @@ void UpdateAndDraw(u64& keysDown, u64& keysUp)
         }
 
         float averageFrametime = sum / (float)FrametimeHistogramLen;
-        Gfx::DrawText(Gfx::SystemFontStandard, {0.f, 0.f}, TextLineHeight, WidgetColorBright, "avg: %.2fms min %.2fms max: %.2fms\n\nprof: %.2fms", averageFrametime, min, max, Profiler::Sum);
+
+        char failStr[64];
+        sprintf(failStr, "3D: OGL FAILED (step %d)", s_EglFailStep);
+
+        const char* rendererName;
+        if (GPU::Renderer == 1)
+            rendererName = "3D: OpenGL HW";
+        else if (Config::Renderer3D == 1)
+            rendererName = failStr;
+        else
+            rendererName = "3D: Deko3D";
+
+        Gfx::DrawText(Gfx::SystemFontStandard, {0.f, 0.f}, TextLineHeight, WidgetColorBright, "avg: %.2fms min %.2fms max: %.2fms\n\nprof: %.2fms  |  %s", averageFrametime, min, max, Profiler::Sum, rendererName);
     }
 
     Profiler::Clear();
@@ -1009,6 +1128,9 @@ void ApplyUpscaleFactor()
     if (newFactor == dekoRenderer->CurrentUpscaleFactor)
         return;
 
+    GPU::RenderSettings settings{true, newFactor, false};
+    GPU::SetRenderSettings(Config::Renderer3D, settings);
+
     // Tear down old texture handles
     for (u32 j = 0; j < 2; j++)
         for (u32 i = 0; i < 2; i++)
@@ -1016,6 +1138,46 @@ void ApplyUpscaleFactor()
 
     // Rebuild at new scale
     dekoRenderer->SetUpscaleFactor(newFactor);
+    for (int j = 0; j < 2; j++)
+        for (int i = 0; i < 2; i++)
+        {
+            u32 w = dekoRenderer->GetDisplayWidth();
+            u32 h = dekoRenderer->GetDisplayHeight();
+            FramebufferTextures[j][i] = Gfx::TextureCreateExternal(w, h,
+                dekoRenderer->GetDisplayFramebuffer(j, i));
+        }
+}
+
+void ApplyRenderer()
+{
+    if (State == emuState_Nothing)
+        return;
+
+    int newRenderer = Config::Renderer3D;
+
+    // Tear down old texture handles
+    for (u32 j = 0; j < 2; j++)
+        for (u32 i = 0; i < 2; i++)
+            Gfx::TextureDelete(FramebufferTextures[j][i]);
+
+    // Tear down the current renderer and reinitialize with the new one
+    GPU::DeInitRenderer();
+    DeInitEGLContext();
+
+    if (newRenderer == 1)
+    {
+        if (!InitEGLContext())
+            newRenderer = 0;
+    }
+    GPU::InitRenderer(newRenderer);
+
+    // Reapply current scale
+    auto* dekoRenderer = (GPU2D::DekoRenderer*)GPU::GPU2D_Renderer.get();
+    int clampedScale = std::max(1, std::min(4, Config::upscaleFactor + 1));
+    GPU::RenderSettings settings{true, clampedScale, false};
+    GPU::SetRenderSettings(newRenderer, settings);
+    dekoRenderer->SetUpscaleFactor(clampedScale);
+
     for (int j = 0; j < 2; j++)
         for (int i = 0; i < 2; i++)
         {

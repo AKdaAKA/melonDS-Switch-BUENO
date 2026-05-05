@@ -34,6 +34,7 @@ void Stop();
 void Reset();
 void UpdateScreenLayout();
 void ApplyUpscaleFactor();  // Rebuilds framebuffer textures at new upscale factor
+void ApplyRenderer();        // Reinitializes the 3D renderer (Deko3D <-> OpenGL)
 
 extern bool LidClosed;
 

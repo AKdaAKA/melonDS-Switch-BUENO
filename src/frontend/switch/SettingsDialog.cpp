@@ -769,6 +769,14 @@ void DoGui(BoxGui::Frame& parent)
                 Emulation::ApplyUpscaleFactor();
                 lastAppliedUpscale = Config::upscaleFactor;
             }
+
+            static int lastAppliedRenderer = -1;
+            DoCombobox(settingsFrame, settingsSkewer, "3D Renderer", "Deko3D\0OpenGL\0", Config::Renderer3D);
+            if (Config::Renderer3D != lastAppliedRenderer)
+            {
+                Emulation::ApplyRenderer();
+                lastAppliedRenderer = Config::Renderer3D;
+            }
         }
         Emulation::UpdateScreenLayout();
         break;

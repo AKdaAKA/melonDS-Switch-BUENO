@@ -64,6 +64,8 @@ extern int JIT_LiteralOptimisations;
 extern int JIT_FastMemory;
 #endif
 
+extern int Renderer3D;
+
 }
 
 #endif // CONFIG_H

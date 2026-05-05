@@ -22,7 +22,20 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef __SWITCH__
+#include <switch.h>
+#define GL_GLEXT_PROTOTYPES
+#include <GL/gl.h>
+#include <GL/glext.h>
+
+// Polyfills for missing desktop GL functions when linking against GLES libraries
+#define glBindFragDataLocation(...)
+#define glDepthRange glDepthRangef
+#define glClearDepth glClearDepthf
+#define glMapBuffer(target, access) glMapBufferRange(target, 0, 8192, 0x0002 /* GL_MAP_WRITE_BIT */)
+#else
 #include <epoxy/gl.h>
+#endif
 
 
 #include "Platform.h"

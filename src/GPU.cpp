@@ -20,6 +20,7 @@
 #include <string.h>
 #include "NDS.h"
 #include "GPU.h"
+#include "Config.h"
 
 #include "GPU2D_Soft.h"
 
@@ -149,11 +150,8 @@ bool Init()
     //GPU2D_Renderer = std::make_unique<GPU2D::SoftRenderer>();
     GPU2D_Renderer = std::make_unique<GPU2D::DekoRenderer>();
     if (!GPU3D::Init()) return false;
-
-    FrontBuffer = 0;
-    Framebuffer[0][0] = NULL; Framebuffer[0][1] = NULL;
-    Framebuffer[1][0] = NULL; Framebuffer[1][1] = NULL;
-    Renderer = 0;
+    
+    Renderer = Config::Renderer3D;
 
     return true;
 }
