@@ -1344,48 +1344,63 @@ uint BlendFog(uint color, uint depth)
 
 void main()
 {
-    int upscaledW = 256 * int(UpscaleFactor);
-    int upscaledH = 192 * int(UpscaleFactor);
+    // We dispatch at native resolution (256/32, 192, 1).
+    // gl_GlobalInvocationID.x = 0..7 (8 invocations per workgroup of 32, across 256/32=8 groups = 256 pixels)
+    // gl_GlobalInvocationID.y = 0..191 (native scanlines)
+    int nativeX = int(gl_GlobalInvocationID.x);
+    int nativeY = int(gl_GlobalInvocationID.y);
+    int srcX = (nativeX + XScroll) & 0x1FF;
 
-    // XScroll is native (0..511). Scale it to upscaled space and wrap at upscaled width.
-    int srcX = (int(gl_GlobalInvocationID.x) + (XScroll * int(UpscaleFactor))) % (512 * int(UpscaleFactor));
-    int resultOffset = srcX + int(gl_GlobalInvocationID.y) * upscaledW;
+    // Upscaled framebuffer stride
+    int scaledW = 256 * int(UpscaleFactor);
 
+    // Box-average the UpscaleFactor x UpscaleFactor block in the upscaled buffer
     uvec2 color = uvec2(0);
     uvec2 depth = uvec2(0);
     uvec2 attr = uvec2(0);
-    if (srcX < upscaledW)
+    if (srcX < 256)
     {
-        color = uvec2(ColorResult[resultOffset], ColorResult[resultOffset+FramebufferStride]);
-        depth = uvec2(DepthResult[resultOffset], DepthResult[resultOffset+FramebufferStride]);
-        attr = uvec2(AttrResult[resultOffset], AttrResult[resultOffset+FramebufferStride]);
+        // Use the top-left pixel of the block as the representative sample
+        // (full averaging would require reading N*N pixels — expensive)
+        // For correctness we read the first upscaled pixel that maps to this native pixel.
+        int ux = srcX * int(UpscaleFactor);
+        int uy = nativeY * int(UpscaleFactor);
+        int resultOffset = ux + uy * scaledW;
+        int resultOffsetAlt = ux + uy * scaledW + FramebufferStride;
+        color = uvec2(ColorResult[resultOffset], ColorResult[resultOffsetAlt]);
+        depth = uvec2(DepthResult[resultOffset], DepthResult[resultOffsetAlt]);
+        attr = uvec2(AttrResult[resultOffset], AttrResult[resultOffsetAlt]);
     }
 
 #ifdef EdgeMarking
     if ((attr.x & 0xFU) != 0U)
     {
+        int ux = srcX * int(UpscaleFactor);
+        int uy = nativeY * int(UpscaleFactor);
+        int resultOffset = ux + uy * scaledW;
+
         uvec4 otherAttr = uvec4(ClearAttr);
         uvec4 otherDepth = uvec4(ClearDepth);
 
-        if (srcX > 0U)
+        if (srcX > 0)
         {
-            otherAttr.x = AttrResult[resultOffset-1];
-            otherDepth.x = DepthResult[resultOffset-1];
+            otherAttr.x = AttrResult[resultOffset - int(UpscaleFactor)];
+            otherDepth.x = DepthResult[resultOffset - int(UpscaleFactor)];
         }
-        if (srcX < uint(upscaledW - 1))
+        if (srcX < 255)
         {
-            otherAttr.y = AttrResult[resultOffset+1];
-            otherDepth.y = DepthResult[resultOffset+1];
+            otherAttr.y = AttrResult[resultOffset + int(UpscaleFactor)];
+            otherDepth.y = DepthResult[resultOffset + int(UpscaleFactor)];
         }
-        if (gl_GlobalInvocationID.y > 0U)
+        if (nativeY > 0)
         {
-            otherAttr.z = AttrResult[resultOffset-upscaledW];
-            otherDepth.z = DepthResult[resultOffset-upscaledW];
+            otherAttr.z = AttrResult[resultOffset - scaledW];
+            otherDepth.z = DepthResult[resultOffset - scaledW];
         }
-        if (gl_GlobalInvocationID.y < uint(upscaledH - 1))
+        if (nativeY < 191)
         {
-            otherAttr.w = AttrResult[resultOffset+upscaledW];
-            otherDepth.w = DepthResult[resultOffset+upscaledW];
+            otherAttr.w = AttrResult[resultOffset + scaledW];
+            otherDepth.w = DepthResult[resultOffset + scaledW];
         }
 
         uint polyId = bitfieldExtract(attr.x, 24, 5);
@@ -1463,7 +1478,7 @@ void main()
     //if (gl_LocalInvocationID.x == 7 || gl_LocalInvocationID.y == 7)
         //color.x = 0x1F00001FU | 0x40000000U;
 
-    imageStore(FinalFB, ivec2(gl_GlobalInvocationID.xy), uvec4(color.x, 0, 0, 0));
+    imageStore(FinalFB, ivec2(nativeX, nativeY), uvec4(color.x, 0, 0, 0));
 }
 
 #endif

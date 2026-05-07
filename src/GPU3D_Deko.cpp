@@ -232,11 +232,6 @@ void DekoRenderer::SetRenderSettings(GPU::RenderSettings& settings)
     UPSCALE_LOG("[SetRenderSettings] Scale changed: %d -> %d\n", prevScale, CurrentUpscaleFactor);
 }
 
-u32 DekoRenderer::GetUpscaleFactor()
-{
-    return CurrentUpscaleFactor;
-}
-
 void DekoRenderer::VCount144()
 {
 
@@ -1544,7 +1539,7 @@ void DekoRenderer::RenderFrame()
     if (RenderDispCnt & (1<<5))
         finalPassShader |= 0x1;
     EmuCmdBuf.bindShaders(DkStageFlag_Compute, {&ShaderFinalPass[finalPassShader]});
-    EmuCmdBuf.dispatchCompute((256*CurrentUpscaleFactor)/32, 192*CurrentUpscaleFactor, 1);
+    EmuCmdBuf.dispatchCompute(256/32, 192, 1);
     EmuCmdBuf.barrier(DkBarrier_Primitives, 0);
 
     DkCmdList cmdlist = CmdMem.End(EmuCmdBuf);
