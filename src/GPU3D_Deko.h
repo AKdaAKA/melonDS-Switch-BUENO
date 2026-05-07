@@ -183,7 +183,9 @@ private:
     static const int BinStride = 2048/32;
     static const int CoarseBinStride = BinStride/32;
 
-    static const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*48;
+    // MaxWorkTiles must match GPU3D_Comp.glsl exactly.
+    // 10 avg polys-per-tile keeps TilesBuffer under 128 MB at 4x (94 MB).
+    static const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*10;
     static const int MaxVariants = 256;
 
     struct BinResult
@@ -216,11 +218,20 @@ private:
 
     // eh those are pretty bad guesses
     // though real hw shouldn't be eable to render all 2048 polygons on every line either
+    // MaxYSpanIndices: the upscaled Y-loop emits N index entries per pixel row
+    // (one per upscaled scanline), but N rows share the same L/R span STRUCTS.
+    // We need the index table to hold UpscaleFactor * native max entries.
+    // However, multiplying by MaxUpscaleFactor=4 inflates XSpanSetupMemory to 40 MB
+    // and the CPU array to 4 MB. Use a moderate 2x budget that handles 2x scale safely;
+    // at 4x the assert will fire and we can bump this incrementally.
+    // TODO: make this dynamic or bump to *MaxUpscaleFactor once GPU heap is enlarged.
     static const int MaxYSpanIndices = 64*2048;
+    // MaxYSpanSetups stays at native count since we reuse span structs across
+    // the N upscaled rows derived from each native edge segment.
     static const int MaxYSpanSetups = 6144*2;
-    SetupIndices YSpanIndices[MaxYSpanIndices];
-    SpanSetupY YSpanSetups[MaxYSpanSetups];
-    RenderPolygon RenderPolygons[2048];
+    SetupIndices* YSpanIndices;
+    SpanSetupY* YSpanSetups;
+    RenderPolygon* RenderPolygons;
 
     struct TexArrayEntry
     {
@@ -255,7 +266,7 @@ private:
     std::vector<TexArrayEntry> FreeTextures[8][8];
     std::vector<TexArray> TexArrays[8][8];
 
-    u32 TextureDecodingBuffer[1024*1024];
+    u32* TextureDecodingBuffer;
 
     TexCacheEntry& GetTexture(u32 textureParam, u32 paletteParam);
 

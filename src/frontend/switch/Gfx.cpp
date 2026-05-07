@@ -546,10 +546,10 @@ void Init()
         .setFlushThreshold(DK_QUEUE_MIN_CMDMEM_SIZE)
         .create();
 
-    TextureHeap.emplace(Device, 1024*1024*120, DkMemBlockFlags_GpuCached | DkMemBlockFlags_Image, 1024*8);
+    TextureHeap.emplace(Device, 1024*1024*192, DkMemBlockFlags_GpuCached | DkMemBlockFlags_Image, 1024*16);
     ShaderCodeHeap.emplace(Device, 1024*1024*12,
         DkMemBlockFlags_CpuUncached | DkMemBlockFlags_GpuCached | DkMemBlockFlags_Code, 64);
-    DataHeap.emplace(Device, 1024*1024*256, DkMemBlockFlags_CpuUncached | DkMemBlockFlags_GpuCached, 128);
+    DataHeap.emplace(Device, 1024*1024*512, DkMemBlockFlags_CpuUncached | DkMemBlockFlags_GpuCached, 512);
 
     PresentCmdBuf = dk::CmdBufMaker{Device}.create();
     EmuCmdBuf = dk::CmdBufMaker{Device}.create();

@@ -918,14 +918,20 @@ void UpdateAndDraw(u64& keysDown, u64& keysUp)
 
         float averageFrametime = sum / (float)FrametimeHistogramLen;
 
+#ifdef SWITCH_MESA_ENABLED
         char failStr[64];
         sprintf(failStr, "3D: OGL FAILED (step %d)", s_EglFailStep);
+#endif
 
         const char* rendererName;
         if (GPU::Renderer == 1)
             rendererName = "3D: OpenGL HW";
         else if (Config::Renderer3D == 1)
+#ifdef SWITCH_MESA_ENABLED
             rendererName = failStr;
+#else
+            rendererName = "3D: OGL DISABLED";
+#endif
         else
             rendererName = "3D: Deko3D";
 
@@ -1212,6 +1218,12 @@ int main(int argc, const char* argv[])
 
     romfsInit();
     setInitialize();
+
+    // Clear the upscale log at startup
+    {
+        FILE* f = fopen("sdmc:/switch/melonDS/upscale_log.txt", "w");
+        if (f) { fprintf(f, "--- NEW RUN START ---\n"); fclose(f); }
+    }
 
     padConfigureInput(1, HidNpadStyleSet_NpadFullCtrl);
     padInitializeDefault(&Pad);

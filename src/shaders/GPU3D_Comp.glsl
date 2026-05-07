@@ -125,9 +125,12 @@ const int CoarseTileCountY = 4;
 const int CoarseTileW = CoarseTileCountX * TileSize;
 const int CoarseTileH = CoarseTileCountY * TileSize;
 
-const int MaxUpscaleFactor = 1;
-const int MaxTilesPerLine = (256 * MaxUpscaleFactor) / TileSize;
-const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;
+// MaxUpscaleFactor sets the compile-time ceiling for GLSL array sizes.
+// The actual runtime scale is controlled by the UpscaleFactor uniform.
+// Reducing MaxWorkTilesPerTile from 48 to 16 keeps memory ~37 MB at 4x, ~9 MB at 2x.
+const int MaxUpscaleFactor = 4;
+const int MaxTilesPerLine = (256 * MaxUpscaleFactor) / TileSize;  // 128
+const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;     // 96
 
 #define FramebufferStride ((256 * int(UpscaleFactor)) * (192 * int(UpscaleFactor)))
 #define TilesPerLine ((256 * int(UpscaleFactor)) / TileSize)
@@ -136,7 +139,10 @@ const int MaxTileLines = (192 * MaxUpscaleFactor) / TileSize;
 const int BinStride = 2048/32;
 const int CoarseBinStride = BinStride/32;
 
-const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*48;
+// Reduced from 48 → 10 avg polys-per-tile.
+// Math: MaxWorkTiles * TileSize^2 * 3 buffers * 4 bytes < 128 MB SSBO limit
+// At 4x: 128*96*10 = 122880; * 64 * 12 = 94 MB. OK.
+const int MaxWorkTiles = MaxTilesPerLine*MaxTileLines*10;
 const int MaxVariants = 256;
 
 layout (std430, binding = 3)

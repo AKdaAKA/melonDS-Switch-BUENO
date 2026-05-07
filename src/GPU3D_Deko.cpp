@@ -13,8 +13,42 @@
 
 #include <arm_neon.h>
 
+#define GET_X(v) ((v)->FinalPosition[0])
+#define GET_Y(v) ((v)->FinalPosition[1])
+
+// -----------------------------------------------------------------------
+// Debug logging helpers. Writes to /switch/melonDS/upscale_log.txt
+// Set UPSCALE_LOG_ENABLED to 0 to disable in production builds.
+// -----------------------------------------------------------------------
+#define UPSCALE_LOG_ENABLED 1
+
+#if UPSCALE_LOG_ENABLED
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+
+static void UPSCALE_LOG_FUNC(const char* fmt, ...)
+{
+    FILE* f = fopen("sdmc:/switch/melonDS/upscale_log.txt", "a");
+    if (f)
+    {
+        va_list args;
+        va_start(args, fmt);
+        vfprintf(f, fmt, args);
+        va_end(args);
+        fclose(f);
+    }
+}
+#define UPSCALE_LOG(...) UPSCALE_LOG_FUNC(__VA_ARGS__)
+static u32 s_LogFrameCounter = 0;
+static u32 s_LoggedScaleFactor = 0;
+#else
+#define UPSCALE_LOG(...)
+#endif
+
 using Gfx::EmuCmdBuf;
 using Gfx::EmuQueue;
+
 
 int visiblePolygon;
 
@@ -31,28 +65,68 @@ u32 CurrentUpscaleFactor = 1;
 DekoRenderer::DekoRenderer()
     : Renderer3D(false),
     CmdMem(*Gfx::DataHeap, 1024*128)
-{}
+{
+    YSpanIndices = (SetupIndices*)calloc(MaxYSpanIndices, sizeof(SetupIndices));
+    YSpanSetups = (SpanSetupY*)calloc(MaxYSpanSetups, sizeof(SpanSetupY));
+    RenderPolygons = (RenderPolygon*)calloc(2048, sizeof(RenderPolygon));
+    TextureDecodingBuffer = (u32*)calloc(1024*1024, sizeof(u32));
+
+    // Log from constructor (before Init) so we can distinguish constructor crash vs Init() crash
+    UPSCALE_LOG("[GPU3D Constructor] DekoRenderer created, heap arrays allocated OK\n");
+    UPSCALE_LOG("[GPU3D Constructor] sizeof(DekoRenderer class) is now small, heap buffers total ~7MB\n");
+}
 
 DekoRenderer::~DekoRenderer()
-{}
+{
+    free(YSpanIndices);
+    free(YSpanSetups);
+    free(RenderPolygons);
+    free(TextureDecodingBuffer);
+}
 
 bool DekoRenderer::Init()
 {
+    // ---------------------------------------------------------------
+    // STARTUP DIAGNOSTIC: write to SD card before any GPU allocations
+    // so we can see exactly where an OOM crash occurs.
+    // ---------------------------------------------------------------
+    UPSCALE_LOG("[Init] ===== GPU3D DekoRenderer::Init() =====\n");
+    UPSCALE_LOG("[Init] sizeof(Tiles)=%zu (%.1f MB)\n",     sizeof(Tiles),     sizeof(Tiles)/1048576.0f);
+    UPSCALE_LOG("[Init] sizeof(BinResult)=%zu (%.1f MB)\n", sizeof(BinResult), sizeof(BinResult)/1048576.0f);
+    UPSCALE_LOG("[Init] sizeof(FinalTiles)=%zu (%.1f MB)\n",sizeof(FinalTiles), sizeof(FinalTiles)/1048576.0f);
+    UPSCALE_LOG("[Init] MaxWorkTiles=%d  MaxUpscaleFactor=%d  MaxTilesPerLine=%d  MaxTileLines=%d\n",
+        MaxWorkTiles, MaxUpscaleFactor, MaxTilesPerLine, MaxTileLines);
+    UPSCALE_LOG("[Init] XSpanSetupMemory=%zu  YSpanSetupMemory=%zu\n",
+        sizeof(SpanSetupX)*(size_t)MaxYSpanIndices, sizeof(SpanSetupY)*(size_t)MaxYSpanSetups*2);
+    UPSCALE_LOG("[Init] DataHeap total=256MB; estimated GPU3D usage=%.1f MB\n",
+        (sizeof(Tiles)+sizeof(BinResult)+sizeof(FinalTiles)+
+         sizeof(SpanSetupX)*MaxYSpanIndices+sizeof(SpanSetupY)*MaxYSpanSetups*2)/1048576.0f);
+
+    UPSCALE_LOG("[Init] Alloc YSpanSetupMemory + RenderPolygonMemory...\n");
     for (int i = 0; i < 2; i++)
     {
         YSpanSetupMemory[i] = Gfx::DataHeap->Alloc(sizeof(SpanSetupY)*MaxYSpanSetups, 4);
-
         RenderPolygonMemory[i] = Gfx::DataHeap->Alloc(sizeof(RenderPolygon)*2048, 4);
     }
 
+    UPSCALE_LOG("[Init] Alloc TileMemory (%.1f MB)...\n", sizeof(Tiles)/1048576.0f);
     TileMemory = Gfx::DataHeap->Alloc(sizeof(Tiles), alignof(Tiles));
+    UPSCALE_LOG("[Init] TileMemory OK offset=%u\n", TileMemory.Offset);
 
+    UPSCALE_LOG("[Init] Alloc XSpanSetupMemory (%.1f MB)...\n",
+        sizeof(SpanSetupX)*MaxYSpanIndices/1048576.0f);
     XSpanSetupMemory = Gfx::DataHeap->Alloc(sizeof(SpanSetupX)*MaxYSpanIndices, alignof(SpanSetupX));
+    UPSCALE_LOG("[Init] XSpanSetupMemory OK\n");
 
+    UPSCALE_LOG("[Init] Alloc BinResultMemory (%.1f MB)...\n", sizeof(BinResult)/1048576.0f);
     BinResultMemory = Gfx::DataHeap->Alloc(sizeof(BinResult), alignof(BinResult));
+    UPSCALE_LOG("[Init] BinResultMemory OK, starting memset...\n");
     memset(Gfx::DataHeap->CpuAddr<void>(BinResultMemory), 0, sizeof(BinResult));
+    UPSCALE_LOG("[Init] memset BinResult done\n");
 
+    UPSCALE_LOG("[Init] Alloc FinalTileMemory (%.1f MB)...\n", sizeof(FinalTiles)/1048576.0f);
     FinalTileMemory = Gfx::DataHeap->Alloc(sizeof(FinalTiles), alignof(FinalTiles));
+    UPSCALE_LOG("[Init] FinalTileMemory OK\n");
 
     dk::ImageLayout yspanIndicesLayout;
     dk::ImageLayoutMaker{Gfx::Device}
@@ -60,8 +134,11 @@ bool DekoRenderer::Init()
         .setDimensions(MaxYSpanIndices)
         .setFormat(DkImageFormat_RGBA16_Uint)
         .initialize(yspanIndicesLayout);
+    UPSCALE_LOG("[Init] Alloc YSpanIndicesTexture (TextureHeap, %zu bytes)...\n",
+        (size_t)yspanIndicesLayout.getSize());
     YSpanIndicesTextureMemory = Gfx::TextureHeap->Alloc(yspanIndicesLayout.getSize(), yspanIndicesLayout.getAlignment());
     YSpanIndicesTexture.initialize(yspanIndicesLayout, Gfx::TextureHeap->MemBlock, YSpanIndicesTextureMemory.Offset);
+    UPSCALE_LOG("[Init] YSpanIndicesTexture OK\n");
 
     Gfx::LoadShader("romfs:/shaders/InterpXSpansZBuffer.dksh", ShaderInterpXSpans[0]);
     Gfx::LoadShader("romfs:/shaders/InterpXSpansWBuffer.dksh", ShaderInterpXSpans[1]);
@@ -150,7 +227,9 @@ void DekoRenderer::Reset()
 
 void DekoRenderer::SetRenderSettings(GPU::RenderSettings& settings)
 {
+    u32 prevScale = CurrentUpscaleFactor;
     CurrentUpscaleFactor = settings.GL_ScaleFactor;
+    UPSCALE_LOG("[SetRenderSettings] Scale changed: %d -> %d\n", prevScale, CurrentUpscaleFactor);
 }
 
 void DekoRenderer::VCount144()
@@ -949,12 +1028,21 @@ void DekoRenderer::RenderFrame()
         u32 vtop = polygon->VTop, vbot = polygon->VBottom;
         s32 ytop = polygon->YTop, ybot = polygon->YBottom;
 
+        // --- UPSCALE FIX: convert native Y coords to scaled screen space ---
+        // The rasterizer dispatches at (256*N x 192*N) pixels.
+        // Each native DS scanline maps to N output scanlines.
+        // Without this, we only generate spans for 192 rows regardless of scale,
+        // leaving most of the upscaled framebuffer empty.
+        s32 ytopScaled = ytop * (s32)CurrentUpscaleFactor;
+        s32 ybotScaled = ybot * (s32)CurrentUpscaleFactor;
+
         u32 curVL = vtop, curVR = vtop;
         u32 nextVL, nextVR;
 
         RenderPolygons[i].FirstXSpan = numSetupIndices;
-        RenderPolygons[i].YTop = ytop;
-        RenderPolygons[i].YBot = ybot;
+        // Store scaled Y coords so the GLSL shader bins/rasterizes at the correct rows.
+        RenderPolygons[i].YTop = ytopScaled;
+        RenderPolygons[i].YBot = ybotScaled;
         RenderPolygons[i].Attr = polygon->Attr;
 
         bool foundVariant = false;
@@ -1046,7 +1134,8 @@ void DekoRenderer::RenderFrame()
         {
             vtop = 0; vbot = 0;
 
-            RenderPolygons[i].YBot++;
+            // In scaled space, flat polygons still take one scanline.
+            RenderPolygons[i].YBot = ytopScaled + (s32)CurrentUpscaleFactor;
 
             int j = 1;
             if (GET_X(polygon->Vertices[j]) < GET_X(polygon->Vertices[vtop])) vtop = j;
@@ -1073,12 +1162,16 @@ void DekoRenderer::RenderFrame()
                 std::swap(minXY, maxXY);
             }
 
-            assert(numSetupIndices < MaxYSpanIndices);
-            YSpanIndices[numSetupIndices].PolyIdx = i;
-            YSpanIndices[numSetupIndices].SpanIdxL = curSpanL;
-            YSpanIndices[numSetupIndices].SpanIdxR = curSpanR;
-            YSpanIndices[numSetupIndices].Y = ytop;
-            numSetupIndices++;
+            // Emit one span entry per upscaled scanline for flat polygons.
+            for (s32 y = ytopScaled; y < ytopScaled + (s32)CurrentUpscaleFactor; y++)
+            {
+                assert(numSetupIndices < MaxYSpanIndices);
+                YSpanIndices[numSetupIndices].PolyIdx = i;
+                YSpanIndices[numSetupIndices].SpanIdxL = curSpanL;
+                YSpanIndices[numSetupIndices].SpanIdxR = curSpanR;
+                YSpanIndices[numSetupIndices].Y = (u32)y;
+                numSetupIndices++;
+            }
         }
         else
         {
@@ -1089,11 +1182,17 @@ void DekoRenderer::RenderFrame()
             assert(numYSpans < MaxYSpanSetups);
             SetupYSpan(i, &YSpanSetups[numYSpans++], polygon, curVR, nextVR, ytop, 1);
 
-            for (u32 y = ytop; y < ybot; y++)
+            // --- UPSCALE FIX: iterate over SCALED scanlines ---
+            // At scale N each native DS row becomes N output rows.
+            // Vertex transition checks use native coords multiplied by scale.
+            for (s32 y = ytopScaled; y < ybotScaled; y++)
             {
-                if (y >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
+                // Native y equivalent (which vertex edge we are on)
+                s32 yNative = y / (s32)CurrentUpscaleFactor;
+
+                if (yNative >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
                 {
-                    while (y >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
+                    while (yNative >= GET_Y(polygon->Vertices[nextVL]) && curVL != polygon->VBottom)
                     {
                         curVL = nextVL;
                         if (polygon->FacingView)
@@ -1121,13 +1220,17 @@ void DekoRenderer::RenderFrame()
                         maxXY = GET_Y(polygon->Vertices[curVL]);
                     }
 
-                    assert(numYSpans < MaxYSpanSetups);
-                    curSpanL = numYSpans;
-                    SetupYSpan(i,&YSpanSetups[numYSpans++], polygon, curVL, nextVL, y, 0);
+                    // Only setup a new span at each native Y transition
+                    if (y % (s32)CurrentUpscaleFactor == 0 || curSpanL == (u32)-1)
+                    {
+                        assert(numYSpans < MaxYSpanSetups);
+                        curSpanL = numYSpans;
+                        SetupYSpan(i, &YSpanSetups[numYSpans++], polygon, curVL, nextVL, yNative, 0);
+                    }
                 }
-                if (y >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
+                if (yNative >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
                 {
-                    while (y >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
+                    while (yNative >= GET_Y(polygon->Vertices[nextVR]) && curVR != polygon->VBottom)
                     {
                         curVR = nextVR;
                         if (polygon->FacingView)
@@ -1155,16 +1258,19 @@ void DekoRenderer::RenderFrame()
                         maxXY = GET_Y(polygon->Vertices[curVR]);
                     }
 
-                    assert(numYSpans < MaxYSpanSetups);
-                    curSpanR = numYSpans;
-                    SetupYSpan(i,&YSpanSetups[numYSpans++], polygon, curVR, nextVR, y, 1);
+                    if (y % (s32)CurrentUpscaleFactor == 0 || curSpanR == (u32)-1)
+                    {
+                        assert(numYSpans < MaxYSpanSetups);
+                        curSpanR = numYSpans;
+                        SetupYSpan(i, &YSpanSetups[numYSpans++], polygon, curVR, nextVR, yNative, 1);
+                    }
                 }
 
                 assert(numSetupIndices < MaxYSpanIndices);
                 YSpanIndices[numSetupIndices].PolyIdx = i;
                 YSpanIndices[numSetupIndices].SpanIdxL = curSpanL;
                 YSpanIndices[numSetupIndices].SpanIdxR = curSpanR;
-                YSpanIndices[numSetupIndices].Y = y;
+                YSpanIndices[numSetupIndices].Y = (u32)y;
                 numSetupIndices++;
             }
         }
@@ -1206,6 +1312,30 @@ void DekoRenderer::RenderFrame()
         }
         //assert(RenderPolygons[i].Variant < numVariants);
     }*/
+    // --- Per-frame upscale diagnostics (written to sdmc:/switch/melonDS/upscale_log.txt) ---
+    s_LogFrameCounter++;
+    if (s_LogFrameCounter % 300 == 1 || s_LoggedScaleFactor != CurrentUpscaleFactor)
+    {
+        UPSCALE_LOG("[RenderFrame #%u] Scale=%u, Polygons=%u, YSpans=%u, SetupIndices=%u\n",
+            s_LogFrameCounter, CurrentUpscaleFactor, RenderNumPolygons, numYSpans, numSetupIndices);
+        UPSCALE_LOG("  Expected SetupIndices at %ux = Polygons * AvgHeight * %u\n",
+            CurrentUpscaleFactor, CurrentUpscaleFactor);
+        UPSCALE_LOG("  currentTilesPerLine=%u, currentTileLines=%u\n",
+            (256u * CurrentUpscaleFactor) / TileSize,
+            (192u * CurrentUpscaleFactor) / TileSize);
+        UPSCALE_LOG("  Dispatch BinCombined: (%u, %u, %u)\n",
+            (RenderNumPolygons + 31) / 32u,
+            (256u * CurrentUpscaleFactor) / CoarseTileW,
+            (192u * CurrentUpscaleFactor) / CoarseTileH);
+        UPSCALE_LOG("  Dispatch DepthBlend: (%u, %u, 1)\n",
+            (256u * CurrentUpscaleFactor) / 8u,
+            (192u * CurrentUpscaleFactor) / 8u);
+        UPSCALE_LOG("  Dispatch FinalPass: (%u, %u, 1)\n",
+            (256u * CurrentUpscaleFactor) / 32u,
+            192u * CurrentUpscaleFactor);
+        s_LoggedScaleFactor = CurrentUpscaleFactor;
+    }
+
     DkGpuAddr gpuAddrBinResult = Gfx::DataHeap->GpuAddr(BinResultMemory);
     DkGpuAddr gpuAddrMetaUniform = Gfx::DataHeap->GpuAddr(MetaUniformMemory);
 

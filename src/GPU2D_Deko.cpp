@@ -8,7 +8,31 @@
 
 #include "GPU3D_Deko.h"
 
-#include <assert.h>
+#include <stdio.h>
+
+// Upscale logging - mirrors GPU3D_Deko.cpp's UPSCALE_LOG.
+// Both write to the same file. GPU2D opens it in append mode so GPU3D's
+// entries (written first during Init) are preserved.
+#define UPSCALE_LOG_ENABLED 1
+#include <stdarg.h>
+
+#if UPSCALE_LOG_ENABLED
+static void UPSCALE_LOG2D_FUNC(const char* fmt, ...)
+{
+    FILE* f = fopen("sdmc:/switch/melonDS/upscale_log.txt", "a");
+    if (f)
+    {
+        va_list args;
+        va_start(args, fmt);
+        vfprintf(f, fmt, args);
+        va_end(args);
+        fclose(f);
+    }
+}
+#define UPSCALE_LOG2D(...) UPSCALE_LOG2D_FUNC(__VA_ARGS__)
+#else
+#define UPSCALE_LOG2D(...)
+#endif
 
 using Gfx::EmuCmdBuf;
 using Gfx::EmuQueue;
@@ -53,8 +77,15 @@ DekoRenderer::DekoRenderer() :
             IntermedFramebufferMemory.Offset + intermedFbLayout.getSize() * i);
     }
 
+    // _3DFramebuffer: allocated at native 256x192 (same format as intermediate FBs).
+    // The GPU3D renderer writes its upscaled output here via the FinalPass shader.
+    // Note: this is at native size because GPU3D_Deko handles upscaling internally;
+    // the 2D compositor reads it at native coords but the GPU3D pass has already
+    // written an upscaled image into the buffer that GPU3D owns.
     _3DFramebufferMemory = Gfx::TextureHeap->Alloc(intermedFbLayout.getSize(), intermedFbLayout.getAlignment());
     _3DFramebuffer.initialize(intermedFbLayout, Gfx::TextureHeap->MemBlock, _3DFramebufferMemory.Offset);
+    UPSCALE_LOG2D("[GPU2D::Init] _3DFramebuffer allocated at 256x192 (R32_Uint), size=%zu bytes\n",
+        (size_t)intermedFbLayout.getSize());
 
     dk::ImageLayout objWindowLayout;
     dk::ImageLayoutMaker{Gfx::Device}
@@ -232,7 +263,10 @@ void DekoRenderer::RecreateUpscaledFramebuffers()
     }
 
     if (CurrentUpscaleFactor <= 1)
+    {
+        UPSCALE_LOG2D("[GPU2D::RecreateUpscaledFramebuffers] Scale=1, skipping upscale buffer alloc\n");
         return;
+    }
 
     u32 w = 256 * CurrentUpscaleFactor;
     u32 h = 192 * CurrentUpscaleFactor;
@@ -250,6 +284,9 @@ void DekoRenderer::RecreateUpscaledFramebuffers()
             UpscaledFramebuffers[j][i].initialize(upscaledLayout,
                 Gfx::TextureHeap->MemBlock,
                 UpscaledFramebufferMemory.Offset + upscaledLayout.getSize() * (i + j * 2));
+
+    UPSCALE_LOG2D("[GPU2D::RecreateUpscaledFramebuffers] Created %ux%u RGBA8 buffers (x4 slots), total=%zu bytes\n",
+        w, h, (size_t)(upscaledLayout.getSize() * 4));
 }
 
 void DekoRenderer::SetUpscaleFactor(int factor)
@@ -259,12 +296,17 @@ void DekoRenderer::SetUpscaleFactor(int factor)
     if (factor == CurrentUpscaleFactor)
         return;
 
+    UPSCALE_LOG2D("[GPU2D::SetUpscaleFactor] %d -> %d\n", CurrentUpscaleFactor, factor);
+
     // Wait for GPU to be idle before reallocating textures
     EmuQueue.waitIdle();
     Gfx::PresentQueue.waitIdle();
 
     CurrentUpscaleFactor = factor;
     RecreateUpscaledFramebuffers();
+
+    UPSCALE_LOG2D("[GPU2D::SetUpscaleFactor] Done. GetDisplayWidth=%u, GetDisplayHeight=%u\n",
+        GetDisplayWidth(), GetDisplayHeight());
 }
 
 template <u32 Size>
