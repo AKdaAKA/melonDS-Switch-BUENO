@@ -27,6 +27,7 @@ public:
     void Reset() override;
 
     void SetRenderSettings(GPU::RenderSettings& settings) override;
+    u32 GetUpscaleFactor() override;
 
     void VCount144() override;
 

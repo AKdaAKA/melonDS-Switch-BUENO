@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/src/ARMJIT_A64/ARMJIT_Linkage.S
+../ARMJIT_x64/ARMJIT_Offsets.h
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/src/ARMJIT_x64/ARMJIT_Offsets.h
+
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/src/ARMJIT_x64/ARMJIT_Offsets.h
+

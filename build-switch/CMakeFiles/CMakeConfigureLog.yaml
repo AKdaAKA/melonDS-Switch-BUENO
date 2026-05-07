@@ -1,0 +1,3042 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/uname"
+      - "/opt/devkitpro/tools/bin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/uname"
+      - "/opt/homebrew/bin/uname"
+      - "/opt/homebrew/sbin/uname"
+      - "/usr/local/bin/uname"
+      - "/System/Cryptexes/App/usr/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:23 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ar"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-gcc-ar"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:24 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ranlib"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-gcc-ranlib"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:25 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-gcc"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:26 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-g++"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-g++"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:27 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-gcc"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:28 (find_program)"
+      - "cmake/Toolchain-cross-Switch.cmake:60 (create_devkit)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-ld"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/aarch64-none-elf-ld"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ld"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:64 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "ELF2NRO"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "elf2nro"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/elf2nro"
+      - "/opt/devkitpro/devkitA64/bin/elf2nro"
+    found: "/opt/devkitpro/tools/bin/elf2nro"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:65 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "NACPTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nacptool"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/nacptool"
+      - "/opt/devkitpro/devkitA64/bin/nacptool"
+    found: "/opt/devkitpro/tools/bin/nacptool"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cmake/Toolchain-cross-Switch.cmake:66 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "UAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uam"
+    candidate_directories:
+      - "/bin/"
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/bin/uam"
+      - "/opt/devkitpro/devkitA64/bin/uam"
+    found: "/opt/devkitpro/tools/bin/uam"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      The target system is: Generic -  - aarch64
+      The host system is: Darwin - 24.2.0 - arm64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/gmake"
+      - "/opt/devkitpro/tools/bin/gmake"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/gmake"
+      - "/opt/homebrew/bin/gmake"
+      - "/opt/homebrew/sbin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/System/Cryptexes/App/usr/bin/gmake"
+      - "/usr/bin/gmake"
+      - "/bin/gmake"
+      - "/usr/sbin/gmake"
+      - "/sbin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/gmake"
+      - "/Library/Apple/usr/bin/gmake"
+      - "/Applications/VMware Fusion.app/Contents/Public/gmake"
+      - "/usr/local/share/dotnet/gmake"
+      - "/Users/aakashbhagavathi/.dotnet/tools/gmake"
+      - "/opt/devkitpro/devkitA64/bin/make"
+      - "/opt/devkitpro/tools/bin/make"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/make"
+      - "/opt/homebrew/bin/make"
+      - "/opt/homebrew/sbin/make"
+      - "/usr/local/bin/make"
+      - "/System/Cryptexes/App/usr/bin/make"
+    found: "/usr/bin/make"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/opt/homebrew/share/cmake/Modules/"
+    found: "/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ 
+      Build flags: -I/opt/devkitpro/libnx/include;-I/opt/devkitpro/portlibs/switch/include;-mtune=cortex-a57;-ffunction-sections;-march=armv8-a+crc+crypto;-mtp=soft;-fPIE
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/4.3.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-strip"
+      - "strip"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-strip"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-nm"
+      - "nm"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-nm"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-objdump"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-objcopy"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-readelf"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-dlltool"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-dlltool"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-dlltool"
+      - "/opt/homebrew/bin/aarch64-none-elf-dlltool"
+      - "/opt/homebrew/sbin/aarch64-none-elf-dlltool"
+      - "/usr/local/bin/aarch64-none-elf-dlltool"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-dlltool"
+      - "/usr/bin/aarch64-none-elf-dlltool"
+      - "/bin/aarch64-none-elf-dlltool"
+      - "/usr/sbin/aarch64-none-elf-dlltool"
+      - "/sbin/aarch64-none-elf-dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-dlltool"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-dlltool"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-dlltool"
+      - "/usr/local/share/dotnet/aarch64-none-elf-dlltool"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-dlltool"
+      - "/opt/devkitpro/devkitA64/bin/dlltool"
+      - "/opt/devkitpro/tools/bin/dlltool"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/dlltool"
+      - "/opt/homebrew/bin/dlltool"
+      - "/opt/homebrew/sbin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/System/Cryptexes/App/usr/bin/dlltool"
+      - "/usr/bin/dlltool"
+      - "/bin/dlltool"
+      - "/usr/sbin/dlltool"
+      - "/sbin/dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/dlltool"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/dlltool"
+      - "/Library/Apple/usr/bin/dlltool"
+      - "/Applications/VMware Fusion.app/Contents/Public/dlltool"
+      - "/usr/local/share/dotnet/dlltool"
+      - "/Users/aakashbhagavathi/.dotnet/tools/dlltool"
+    found: false
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-addr2line"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-tapi"
+      - "tapi"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-tapi"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-tapi"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-tapi"
+      - "/opt/homebrew/bin/aarch64-none-elf-tapi"
+      - "/opt/homebrew/sbin/aarch64-none-elf-tapi"
+      - "/usr/local/bin/aarch64-none-elf-tapi"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-tapi"
+      - "/usr/bin/aarch64-none-elf-tapi"
+      - "/bin/aarch64-none-elf-tapi"
+      - "/usr/sbin/aarch64-none-elf-tapi"
+      - "/sbin/aarch64-none-elf-tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-tapi"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-tapi"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-tapi"
+      - "/usr/local/share/dotnet/aarch64-none-elf-tapi"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-tapi"
+      - "/opt/devkitpro/devkitA64/bin/tapi"
+      - "/opt/devkitpro/tools/bin/tapi"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/tapi"
+      - "/opt/homebrew/bin/tapi"
+      - "/opt/homebrew/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/System/Cryptexes/App/usr/bin/tapi"
+      - "/usr/bin/tapi"
+      - "/bin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
+      - "/Library/Apple/usr/bin/tapi"
+      - "/Applications/VMware Fusion.app/Contents/Public/tapi"
+      - "/usr/local/share/dotnet/tapi"
+      - "/Users/aakashbhagavathi/.dotnet/tools/tapi"
+    found: false
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ar-15.2"
+      - "aarch64-none-elf-gcc-ar-15"
+      - "aarch64-none-elf-gcc-ar15"
+      - "aarch64-none-elf-gcc-ar"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-15.2"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/bin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-15"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/bin/aarch64-none-elf-gcc-ar15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar15"
+      - "/sbin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar15"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:13 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ranlib-15.2"
+      - "aarch64-none-elf-gcc-ranlib-15"
+      - "aarch64-none-elf-gcc-ranlib15"
+      - "aarch64-none-elf-gcc-ranlib"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib15"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-5U4idV"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-5U4idV"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-5U4idV'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8acc7/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_8acc7.dir/build.make CMakeFiles/cmTC_8acc7.dir/build
+        Building CXX object CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE    -v -o CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++
+        Target: aarch64-none-elf
+        Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.0 (devkitA64) 
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/'
+         /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/cc1plus -quiet -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -imultilib pic -D __SWITCH__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_8acc7.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=cortex-a57 -march=armv8-a+crc+crypto -mtp=soft -mlittle-endian -mabi=lp64 -version -ffunction-sections -fPIE -o /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cc56RH8Y.s
+        GNU C++17 (devkitA64) version 15.2.0 (aarch64-none-elf)
+        	compiled by GNU C version Debian Clang 13.0.1, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.18-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/opt/devkitpro/devkitA64/aarch64-none-elf/usr/local/include"
+        ignoring duplicate directory "/opt/devkitpro/devkitA64/aarch64-none-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/devkitpro/libnx/include
+         /opt/devkitpro/portlibs/switch/include
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/backward
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include
+        End of search list.
+        Compiler executable checksum: ccf9350a30c3a58be818cdc16dd85bae
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/'
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/as -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cc56RH8Y.s
+        GNU assembler version 2.45.1 (aarch64-none-elf) using BFD version (GNU Binutils) 2.45.1
+        COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/
+        LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_8acc7
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8acc7.dir/link.txt --verbose=1
+        Using built-in specs.
+        Reading specs from /opt/devkitpro/libnx/switch.specs
+        COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++
+        COLLECT_LTO_WRAPPER=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper
+        Target: aarch64-none-elf
+        Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.0 (devkitA64) 
+        COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/
+        LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/
+        COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_8acc7' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_8acc7.'
+         /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2 -plugin /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so -plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccXH0DA6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase --sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf -EL -X -maarch64elf -T /opt/devkitpro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_8acc7 /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o --require-defined=main -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0 -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm --start-group -lgcc -lc -lsysbase --end-group /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o
+        /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+        COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_8acc7' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_8acc7.'
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -v CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_8acc7
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/devkitpro/libnx/include]
+          add: [/opt/devkitpro/portlibs/switch/include]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/backward]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include]
+        end of search list found
+        collapse include dir [/opt/devkitpro/libnx/include] ==> [/opt/devkitpro/libnx/include]
+        collapse include dir [/opt/devkitpro/portlibs/switch/include] ==> [/opt/devkitpro/portlibs/switch/include]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/backward] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/backward]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/include]
+        implicit include dirs: [/opt/devkitpro/libnx/include;/opt/devkitpro/portlibs/switch/include;/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0;/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic;/opt/devkitpro/devkitA64/aarch64-none-elf/include/c++/15.2.0/backward;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed;/opt/devkitpro/devkitA64/aarch64-none-elf/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-5U4idV']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8acc7/fast]
+        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_8acc7.dir/build.make CMakeFiles/cmTC_8acc7.dir/build]
+        ignore line: [Building CXX object CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE    -v -o CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++]
+        ignore line: [Target: aarch64-none-elf]
+        ignore line: [Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.0 (devkitA64) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/']
+        ignore line: [ /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/cc1plus -quiet -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -imultilib pic -D __SWITCH__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_8acc7.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=cortex-a57 -march=armv8-a+crc+crypto -mtp=soft -mlittle-endian -mabi=lp64 -version -ffunction-sections -fPIE -o /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cc56RH8Y.s]
+        ignore line: [GNU C++17 (devkitA64) version 15.2.0 (aarch64-none-elf)]
+        ignore line: [	compiled by GNU C version Debian Clang 13.0.1  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.18-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/opt/devkitpro/devkitA64/aarch64-none-elf/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/opt/devkitpro/devkitA64/aarch64-none-elf/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/devkitpro/libnx/include]
+        ignore line: [ /opt/devkitpro/portlibs/switch/include]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/aarch64-none-elf/pic]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include/c++/15.2.0/backward]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: ccf9350a30c3a58be818cdc16dd85bae]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/']
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/as -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cc56RH8Y.s]
+        ignore line: [GNU assembler version 2.45.1 (aarch64-none-elf) using BFD version (GNU Binutils) 2.45.1]
+        ignore line: [COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_8acc7]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8acc7.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [Reading specs from /opt/devkitpro/libnx/switch.specs]
+        ignore line: [COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++]
+        ignore line: [COLLECT_LTO_WRAPPER=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper]
+        ignore line: [Target: aarch64-none-elf]
+        ignore line: [Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.0 (devkitA64) ]
+        ignore line: [COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_8acc7' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_8acc7.']
+        link line: [ /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2 -plugin /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so -plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccXH0DA6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase --sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf -EL -X -maarch64elf -T /opt/devkitpro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_8acc7 /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o --require-defined=main -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0 -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm --start-group -lgcc -lc -lsysbase --end-group /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+          arg [/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccXH0DA6.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lsysbase] ==> ignore
+          arg [--sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf] ==> ignore
+          arg [-EL] ==> ignore
+          arg [-X] ==> ignore
+          arg [-maarch64elf] ==> ignore
+          arg [-T] ==> ignore
+          arg [/opt/devkitpro/libnx/switch.ld] ==> ignore
+          arg [-pie] ==> ignore
+          arg [--no-dynamic-linker] ==> ignore
+          arg [--spare-dynamic-tags=0] ==> ignore
+          arg [--gc-sections] ==> ignore
+          arg [-ztext] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-znodynamic-undefined-weak] ==> ignore
+          arg [-zpack-relative-relocs] ==> ignore
+          arg [--build-id=sha1] ==> ignore
+          arg [--nx-module-name] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_8acc7] ==> ignore
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o]
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o]
+          arg [--require-defined=main] ==> ignore
+          arg [-L/opt/devkitpro/libnx/lib] ==> dir [/opt/devkitpro/libnx/lib]
+          arg [-L/opt/devkitpro/portlibs/switch/lib] ==> dir [/opt/devkitpro/portlibs/switch/lib]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic]
+          arg [-L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic] ==> dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib]
+          arg [-L/opt/devkitpro/devkitA64/aarch64-none-elf/lib] ==> dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+          arg [CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [--start-group] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lsysbase] ==> lib [sysbase]
+          arg [--end-group] ==> ignore
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o]
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+        ignore line: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start]
+        ignore line: [ defaulting to 0000000000000000]
+        ignore line: [COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_8acc7' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_8acc7.']
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -v CMakeFiles/cmTC_8acc7.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_8acc7]
+        ignore line: []
+        ignore line: []
+        collapse library dir [/opt/devkitpro/libnx/lib] ==> [/opt/devkitpro/libnx/lib]
+        collapse library dir [/opt/devkitpro/portlibs/switch/lib] ==> [/opt/devkitpro/portlibs/switch/lib]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        collapse library dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        implicit libs: [stdc++;m;gcc;c;sysbase]
+        implicit objs: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+        implicit dirs: [/opt/devkitpro/libnx/lib;/opt/devkitpro/portlibs/switch/lib;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic;/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0;/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake:154 (try_compile)"
+      - "CMakeLists.txt:34 (check_library_exists)"
+    checks:
+      - "Looking for pow in m"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-eRfUz7"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-eRfUz7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "LIBM"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-eRfUz7'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_64e7c/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_64e7c.dir/build.make CMakeFiles/cmTC_64e7c.dir/build
+        Building CXX object CMakeFiles/cmTC_64e7c.dir/CheckFunctionExists.cxx.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -DCHECK_FUNCTION_EXISTS=pow -std=gnu++17 -o CMakeFiles/cmTC_64e7c.dir/CheckFunctionExists.cxx.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-eRfUz7/CheckFunctionExists.cxx"
+        <command-line>: warning: declaration of 'char pow()' conflicts with built-in declaration 'double pow(double, double)' [-Wbuiltin-declaration-mismatch]
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-eRfUz7/CheckFunctionExists.cxx:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+            7 |   CHECK_FUNCTION_EXISTS(void);
+              |   ^~~~~~~~~~~~~~~~~~~~~
+        Linking CXX executable cmTC_64e7c
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64e7c.dir/link.txt --verbose=1
+        /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -DCHECK_FUNCTION_EXISTS=pow  -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  CMakeFiles/cmTC_64e7c.dir/CheckFunctionExists.cxx.obj -o cmTC_64e7c  -lm
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:193 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:102 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:46 (check_symbol_exists)"
+      - "CMakeLists.txt:59 (detect_architecture)"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "ARCHITECTURE_x86_64"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4b0e9/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_4b0e9.dir/build.make CMakeFiles/cmTC_4b0e9.dir/build
+        Building CXX object CMakeFiles/cmTC_4b0e9.dir/CheckSymbolExists.cxx.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu++17 -o CMakeFiles/cmTC_4b0e9.dir/CheckSymbolExists.cxx.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u/CheckSymbolExists.cxx"
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u/CheckSymbolExists.cxx: In function 'int main(int, char**)':
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-Sn6O2u/CheckSymbolExists.cxx:7:19: error: '__x86_64__' was not declared in this scope
+            7 |   return ((int*)(&__x86_64__))[argc];
+              |                   ^~~~~~~~~~
+        make[1]: *** [CMakeFiles/cmTC_4b0e9.dir/CheckSymbolExists.cxx.obj] Error 1
+        make: *** [cmTC_4b0e9/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:193 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:102 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:46 (check_symbol_exists)"
+      - "CMakeLists.txt:60 (detect_architecture)"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "ARCHITECTURE_x86"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1f14a/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_1f14a.dir/build.make CMakeFiles/cmTC_1f14a.dir/build
+        Building CXX object CMakeFiles/cmTC_1f14a.dir/CheckSymbolExists.cxx.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu++17 -o CMakeFiles/cmTC_1f14a.dir/CheckSymbolExists.cxx.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf/CheckSymbolExists.cxx"
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf/CheckSymbolExists.cxx: In function 'int main(int, char**)':
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-7coCAf/CheckSymbolExists.cxx:7:19: error: '__i386__' was not declared in this scope
+            7 |   return ((int*)(&__i386__))[argc];
+              |                   ^~~~~~~~
+        make[1]: *** [CMakeFiles/cmTC_1f14a.dir/CheckSymbolExists.cxx.obj] Error 1
+        make: *** [cmTC_1f14a/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:193 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:102 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:46 (check_symbol_exists)"
+      - "CMakeLists.txt:61 (detect_architecture)"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "ARCHITECTURE_ARM"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a64d4/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_a64d4.dir/build.make CMakeFiles/cmTC_a64d4.dir/build
+        Building CXX object CMakeFiles/cmTC_a64d4.dir/CheckSymbolExists.cxx.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu++17 -o CMakeFiles/cmTC_a64d4.dir/CheckSymbolExists.cxx.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1/CheckSymbolExists.cxx"
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1/CheckSymbolExists.cxx: In function 'int main(int, char**)':
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-fdpuD1/CheckSymbolExists.cxx:7:19: error: '__arm__' was not declared in this scope
+            7 |   return ((int*)(&__arm__))[argc];
+              |                   ^~~~~~~
+        make[1]: *** [CMakeFiles/cmTC_a64d4.dir/CheckSymbolExists.cxx.obj] Error 1
+        make: *** [cmTC_a64d4/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:193 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CheckSymbolExists.cmake:102 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:46 (check_symbol_exists)"
+      - "CMakeLists.txt:62 (detect_architecture)"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-JwL5HX"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-JwL5HX"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "ARCHITECTURE_ARM64"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-JwL5HX'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_63891/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_63891.dir/build.make CMakeFiles/cmTC_63891.dir/build
+        Building CXX object CMakeFiles/cmTC_63891.dir/CheckSymbolExists.cxx.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu++17 -o CMakeFiles/cmTC_63891.dir/CheckSymbolExists.cxx.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-JwL5HX/CheckSymbolExists.cxx"
+        Linking CXX executable cmTC_63891
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63891.dir/link.txt --verbose=1
+        /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  CMakeFiles/cmTC_63891.dir/CheckSymbolExists.cxx.obj -o cmTC_63891
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "CMakeLists.txt:145 (find_program)"
+    mode: "program"
+    variable: "CCACHE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ccache"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/ccache"
+      - "/opt/devkitpro/tools/bin/ccache"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/ccache"
+      - "/opt/homebrew/bin/ccache"
+      - "/opt/homebrew/sbin/ccache"
+      - "/usr/local/bin/ccache"
+      - "/System/Cryptexes/App/usr/bin/ccache"
+      - "/usr/bin/ccache"
+      - "/bin/ccache"
+      - "/usr/sbin/ccache"
+      - "/sbin/ccache"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/ccache"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/ccache"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/ccache"
+      - "/Library/Apple/usr/bin/ccache"
+      - "/Applications/VMware Fusion.app/Contents/Public/ccache"
+      - "/usr/local/share/dotnet/ccache"
+      - "/Users/aakashbhagavathi/.dotnet/tools/ccache"
+    found: false
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PROGRAM_PATH:
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "src/CMakeLists.txt:1 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/opt/homebrew/share/cmake/Modules/"
+    found: "/opt/homebrew/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/include"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "src/CMakeLists.txt:1 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc 
+      Build flags: -I/opt/devkitpro/libnx/include;-I/opt/devkitpro/portlibs/switch/include;-mtune=cortex-a57;-ffunction-sections;-march=armv8-a+crc+crypto;-mtp=soft;-fPIE
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/4.3.2/CompilerIdC/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "src/CMakeLists.txt:1 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ar-15.2"
+      - "aarch64-none-elf-gcc-ar-15"
+      - "aarch64-none-elf-gcc-ar15"
+      - "aarch64-none-elf-gcc-ar"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/sbin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-15.2"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-15.2"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-15.2"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-15.2"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/bin/aarch64-none-elf-gcc-ar-15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/sbin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-15"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/bin/aarch64-none-elf-gcc-ar15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar15"
+      - "/sbin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar15"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PROGRAM_PATH:
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "src/CMakeLists.txt:1 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ranlib-15.2"
+      - "aarch64-none-elf-gcc-ranlib-15"
+      - "aarch64-none-elf-gcc-ranlib15"
+      - "aarch64-none-elf-gcc-ranlib"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-15.2"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-15"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/sbin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib15"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib15"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib15"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib15"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PROGRAM_PATH:
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "src/CMakeLists.txt:1 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-H5ftl4"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-H5ftl4"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-H5ftl4'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a06c1/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_a06c1.dir/build.make CMakeFiles/cmTC_a06c1.dir/build
+        Building C object CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu11   -v -o CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc
+        Target: aarch64-none-elf
+        Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.0 (devkitA64) 
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/'
+         /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/cc1 -quiet -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -imultilib pic -D __SWITCH__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_a06c1.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=cortex-a57 -march=armv8-a+crc+crypto -mtp=soft -mlittle-endian -mabi=lp64 -std=gnu11 -version -ffunction-sections -fPIE -o /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccqEjNYp.s
+        GNU C11 (devkitA64) version 15.2.0 (aarch64-none-elf)
+        	compiled by GNU C version Debian Clang 13.0.1, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.18-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/opt/devkitpro/devkitA64/aarch64-none-elf/usr/local/include"
+        ignoring duplicate directory "/opt/devkitpro/devkitA64/aarch64-none-elf/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/devkitpro/libnx/include
+         /opt/devkitpro/portlibs/switch/include
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include
+        End of search list.
+        Compiler executable checksum: a33196c5a2b3d0a11fcf5f2e01156caf
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/'
+         /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/as -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccqEjNYp.s
+        GNU assembler version 2.45.1 (aarch64-none-elf) using BFD version (GNU Binutils) 2.45.1
+        COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/
+        LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/
+        COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_a06c1
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a06c1.dir/link.txt --verbose=1
+        Using built-in specs.
+        Reading specs from /opt/devkitpro/libnx/switch.specs
+        COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc
+        COLLECT_LTO_WRAPPER=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper
+        Target: aarch64-none-elf
+        Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.0 (devkitA64) 
+        COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/
+        LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/
+        COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_a06c1' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a06c1.'
+         /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2 -plugin /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so -plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cckg10MU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase --sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf -EL -X -maarch64elf -T /opt/devkitpro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_a06c1 /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o --require-defined=main -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0 -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lc -lsysbase --end-group /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o
+        /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+        COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_a06c1' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a06c1.'
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -v CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj -o cmTC_a06c1
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "src/CMakeLists.txt:1 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/devkitpro/libnx/include]
+          add: [/opt/devkitpro/portlibs/switch/include]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+          add: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include]
+        end of search list found
+        collapse include dir [/opt/devkitpro/libnx/include] ==> [/opt/devkitpro/libnx/include]
+        collapse include dir [/opt/devkitpro/portlibs/switch/include] ==> [/opt/devkitpro/portlibs/switch/include]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+        collapse include dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/include]
+        implicit include dirs: [/opt/devkitpro/libnx/include;/opt/devkitpro/portlibs/switch/include;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed;/opt/devkitpro/devkitA64/aarch64-none-elf/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "src/CMakeLists.txt:1 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-H5ftl4']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a06c1/fast]
+        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_a06c1.dir/build.make CMakeFiles/cmTC_a06c1.dir/build]
+        ignore line: [Building C object CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu11   -v -o CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc]
+        ignore line: [Target: aarch64-none-elf]
+        ignore line: [Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.0 (devkitA64) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/']
+        ignore line: [ /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/cc1 -quiet -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -imultilib pic -D __SWITCH__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_a06c1.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=cortex-a57 -march=armv8-a+crc+crypto -mtp=soft -mlittle-endian -mabi=lp64 -std=gnu11 -version -ffunction-sections -fPIE -o /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccqEjNYp.s]
+        ignore line: [GNU C11 (devkitA64) version 15.2.0 (aarch64-none-elf)]
+        ignore line: [	compiled by GNU C version Debian Clang 13.0.1  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.18-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/opt/devkitpro/devkitA64/aarch64-none-elf/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/opt/devkitpro/devkitA64/aarch64-none-elf/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/devkitpro/libnx/include]
+        ignore line: [ /opt/devkitpro/portlibs/switch/include]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/include-fixed]
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: a33196c5a2b3d0a11fcf5f2e01156caf]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/']
+        ignore line: [ /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/as -v -I /opt/devkitpro/libnx/include -I /opt/devkitpro/portlibs/switch/include -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj /var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//ccqEjNYp.s]
+        ignore line: [GNU assembler version 2.45.1 (aarch64-none-elf) using BFD version (GNU Binutils) 2.45.1]
+        ignore line: [COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__SWITCH__' '-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-std=gnu11' '-v' '-o' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_a06c1]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a06c1.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [Reading specs from /opt/devkitpro/libnx/switch.specs]
+        ignore line: [COLLECT_GCC=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc]
+        ignore line: [COLLECT_LTO_WRAPPER=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper]
+        ignore line: [Target: aarch64-none-elf]
+        ignore line: [Configured with: /home/davem/projects/devkitpro/tool-packages/devkita64/gcc/src/gcc-15.2.0/configure --target=aarch64-none-elf --build=x86_64-linux-gnu --host=aarch64-apple-darwin20.2 --prefix=/opt/devkitpro/devkitA64 --enable-languages=c,c++,objc,lto --with-gnu-as --with-gnu-ld --with-gcc --with-march=armv8 --enable-cxx-flags=-ffunction-sections --disable-libstdcxx-verbose --enable-poison-system-directories --enable-multilib --enable-threads --disable-win32-registry --disable-nls --disable-debug --disable-libmudflap --disable-libssp --disable-libgomp --disable-libstdcxx-pch --enable-libstdcxx-time --enable-libstdcxx-filesystem-ts --with-newlib=yes --with-native-system-header-dir=/include --with-sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf --enable-lto --disable-tm-clone-registry --disable-__cxa_atexit --with-bugurl=https://devkitpro.org --with-pkgversion=devkitA64 --with-gmp=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpfr=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-mpc=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-isl=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2 --with-zstd=/opt/devkitpro/crosstools/aarch64-apple-darwin20.2]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.0 (devkitA64) ]
+        ignore line: [COMPILER_PATH=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/:/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/:/opt/devkitpro/devkitA64/aarch64-none-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_a06c1' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a06c1.']
+        link line: [ /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2 -plugin /opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so -plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper -plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cckg10MU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase --sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf -EL -X -maarch64elf -T /opt/devkitpro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_a06c1 /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o --require-defined=main -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0 -L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib -L/opt/devkitpro/devkitA64/aarch64-none-elf/lib CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lc -lsysbase --end-group /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+          arg [/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/opt/devkitpro/devkitA64/libexec/gcc/aarch64-none-elf/15.2.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/var/folders/rc/42nv0m_n5mlgd4_wzydx54mr0000gn/T//cckg10MU.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lsysbase] ==> ignore
+          arg [--sysroot=/opt/devkitpro/devkitA64/aarch64-none-elf] ==> ignore
+          arg [-EL] ==> ignore
+          arg [-X] ==> ignore
+          arg [-maarch64elf] ==> ignore
+          arg [-T] ==> ignore
+          arg [/opt/devkitpro/libnx/switch.ld] ==> ignore
+          arg [-pie] ==> ignore
+          arg [--no-dynamic-linker] ==> ignore
+          arg [--spare-dynamic-tags=0] ==> ignore
+          arg [--gc-sections] ==> ignore
+          arg [-ztext] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-znodynamic-undefined-weak] ==> ignore
+          arg [-zpack-relative-relocs] ==> ignore
+          arg [--build-id=sha1] ==> ignore
+          arg [--nx-module-name] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_a06c1] ==> ignore
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o]
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o]
+          arg [--require-defined=main] ==> ignore
+          arg [-L/opt/devkitpro/libnx/lib] ==> dir [/opt/devkitpro/libnx/lib]
+          arg [-L/opt/devkitpro/portlibs/switch/lib] ==> dir [/opt/devkitpro/portlibs/switch/lib]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic]
+          arg [-L/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic] ==> dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0]
+          arg [-L/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib] ==> dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib]
+          arg [-L/opt/devkitpro/devkitA64/aarch64-none-elf/lib] ==> dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+          arg [CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [--start-group] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lsysbase] ==> lib [sysbase]
+          arg [--end-group] ==> ignore
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o]
+          arg [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o] ==> obj [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+        ignore line: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start]
+        ignore line: [ defaulting to 0000000000000000]
+        ignore line: [COLLECT_GCC_OPTIONS='-I' '/opt/devkitpro/libnx/include' '-I' '/opt/devkitpro/portlibs/switch/include' '-mtp=soft' '-L/opt/devkitpro/libnx/lib' '-L/opt/devkitpro/portlibs/switch/lib' '-specs=/opt/devkitpro/libnx/switch.specs' '-mtune=cortex-a57' '-ffunction-sections' '-march=armv8-a+crc+crypto' '-mtp=soft' '-fPIE' '-v' '-o' 'cmTC_a06c1' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a06c1.']
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE -v CMakeFiles/cmTC_a06c1.dir/CMakeCCompilerABI.c.obj -o cmTC_a06c1]
+        ignore line: []
+        ignore line: []
+        collapse library dir [/opt/devkitpro/libnx/lib] ==> [/opt/devkitpro/libnx/lib]
+        collapse library dir [/opt/devkitpro/portlibs/switch/lib] ==> [/opt/devkitpro/portlibs/switch/lib]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib/pic] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0] ==> [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0]
+        collapse library dir [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/lib] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        collapse library dir [/opt/devkitpro/devkitA64/aarch64-none-elf/lib] ==> [/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        implicit libs: [gcc;c;sysbase]
+        implicit objs: [/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crti.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtbegin.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtend.o;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic/crtn.o]
+        implicit dirs: [/opt/devkitpro/libnx/lib;/opt/devkitpro/portlibs/switch/lib;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/pic;/opt/devkitpro/devkitA64/aarch64-none-elf/lib/pic;/opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0;/opt/devkitpro/devkitA64/aarch64-none-elf/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1296 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "src/CMakeLists.txt:80 (enable_language)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      aarch64-none-elf-gcc (devkitA64) 15.2.0
+      Copyright (C) 2025 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:268 (include)"
+      - "src/CMakeLists.txt:80 (enable_language)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ar-"
+      - "aarch64-none-elf-gcc-ar-"
+      - "aarch64-none-elf-gcc-ar"
+      - "aarch64-none-elf-gcc-ar"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/bin/aarch64-none-elf-gcc-ar-"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-"
+      - "/sbin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ar-"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ar-"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ar-"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ar-"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/bin/aarch64-none-elf-gcc-ar-"
+      - "/usr/sbin/aarch64-none-elf-gcc-ar-"
+      - "/sbin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ar-"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ar-"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ar-"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ar-"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ar-"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PROGRAM_PATH:
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineASMCompiler.cmake:268 (include)"
+      - "src/CMakeLists.txt:80 (enable_language)"
+    mode: "program"
+    variable: "CMAKE_ASM_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "aarch64-none-elf-gcc-ranlib-"
+      - "aarch64-none-elf-gcc-ranlib-"
+      - "aarch64-none-elf-gcc-ranlib"
+      - "aarch64-none-elf-gcc-ranlib"
+    candidate_directories:
+      - "/opt/devkitpro/devkitA64/bin/"
+      - "/opt/devkitpro/tools/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Applications/VMware Fusion.app/Contents/Public/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/aakashbhagavathi/.dotnet/tools/"
+    searched_directories:
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/devkitpro/tools/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Library/Frameworks/Python.framework/Versions/3.14/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/homebrew/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/opt/homebrew/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/local/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/System/Cryptexes/App/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/sbin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Library/Apple/usr/bin/aarch64-none-elf-gcc-ranlib-"
+      - "/Applications/VMware Fusion.app/Contents/Public/aarch64-none-elf-gcc-ranlib-"
+      - "/usr/local/share/dotnet/aarch64-none-elf-gcc-ranlib-"
+      - "/Users/aakashbhagavathi/.dotnet/tools/aarch64-none-elf-gcc-ranlib-"
+    found: "/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib"
+    search_context:
+      CMAKE_PROGRAM_PATH:
+        - "/opt/devkitpro/devkitA64/bin"
+      ENV{PATH}:
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.14/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Applications/VMware Fusion.app/Contents/Public"
+        - "/opt/devkitpro/tools/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/opt/devkitpro/devkitA64/bin"
+        - "/opt/devkitpro/tools/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PROGRAM_PATH:
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "/opt/devkitpro/devkitA64/aarch64-none-elf;/opt/devkitpro/portlibs/switch"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "/opt/homebrew/share/cmake/Modules/FindThreads.cmake:160 (check_c_source_compiles)"
+      - "/opt/homebrew/share/cmake/Modules/FindThreads.cmake:226 (_threads_check_libc)"
+      - "src/teakra/CMakeLists.txt:72 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-qGYaEI"
+      binary: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-qGYaEI"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: "-I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE"
+      CMAKE_MODULE_PATH: "/Users/aakashbhagavathi/MeloDS Bueno LATEST/src/teakra/CMakeModules"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "10.14"
+      CMAKE_WARN_DEPRECATED: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-qGYaEI'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_202f4/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_202f4.dir/build.make CMakeFiles/cmTC_202f4.dir/build
+        Building C object CMakeFiles/cmTC_202f4.dir/src.c.obj
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -DCMAKE_HAVE_LIBC_PTHREAD -D__SWITCH__  -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  -std=gnu11 -o CMakeFiles/cmTC_202f4.dir/src.c.obj -c "/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/CMakeScratch/TryCompile-qGYaEI/src.c"
+        Linking C executable cmTC_202f4
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_202f4.dir/link.txt --verbose=1
+        /opt/devkitpro/devkitA64/lib/gcc/aarch64-none-elf/15.2.0/../../../../aarch64-none-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000000
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -I/opt/devkitpro/libnx/include -I/opt/devkitpro/portlibs/switch/include -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE   -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -specs=/opt/devkitpro/libnx/switch.specs -mtune=cortex-a57 -ffunction-sections -march=armv8-a+crc+crypto -mtp=soft -fPIE  CMakeFiles/cmTC_202f4.dir/src.c.obj -o cmTC_202f4
+        
+      exitCode: 0
+...

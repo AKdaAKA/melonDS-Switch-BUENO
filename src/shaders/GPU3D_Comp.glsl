@@ -1344,13 +1344,17 @@ uint BlendFog(uint color, uint depth)
 
 void main()
 {
-    int srcX = (int(gl_GlobalInvocationID.x) + XScroll) & 0x1FF;
-    int resultOffset = int(srcX) + int(gl_GlobalInvocationID.y) * 256;
+    int upscaledW = 256 * int(UpscaleFactor);
+    int upscaledH = 192 * int(UpscaleFactor);
+
+    // XScroll is native (0..511). Scale it to upscaled space and wrap at upscaled width.
+    int srcX = (int(gl_GlobalInvocationID.x) + (XScroll * int(UpscaleFactor))) % (512 * int(UpscaleFactor));
+    int resultOffset = srcX + int(gl_GlobalInvocationID.y) * upscaledW;
 
     uvec2 color = uvec2(0);
     uvec2 depth = uvec2(0);
     uvec2 attr = uvec2(0);
-    if (srcX < 256)
+    if (srcX < upscaledW)
     {
         color = uvec2(ColorResult[resultOffset], ColorResult[resultOffset+FramebufferStride]);
         depth = uvec2(DepthResult[resultOffset], DepthResult[resultOffset+FramebufferStride]);
@@ -1368,20 +1372,20 @@ void main()
             otherAttr.x = AttrResult[resultOffset-1];
             otherDepth.x = DepthResult[resultOffset-1];
         }
-        if (srcX < 255U)
+        if (srcX < uint(upscaledW - 1))
         {
             otherAttr.y = AttrResult[resultOffset+1];
             otherDepth.y = DepthResult[resultOffset+1];
         }
         if (gl_GlobalInvocationID.y > 0U)
         {
-            otherAttr.z = AttrResult[resultOffset-256];
-            otherDepth.z = DepthResult[resultOffset-256];
+            otherAttr.z = AttrResult[resultOffset-upscaledW];
+            otherDepth.z = DepthResult[resultOffset-upscaledW];
         }
-        if (gl_GlobalInvocationID.y < 191U)
+        if (gl_GlobalInvocationID.y < uint(upscaledH - 1))
         {
-            otherAttr.w = AttrResult[resultOffset+256];
-            otherDepth.w = DepthResult[resultOffset+256];
+            otherAttr.w = AttrResult[resultOffset+upscaledW];
+            otherDepth.w = DepthResult[resultOffset+upscaledW];
         }
 
         uint polyId = bitfieldExtract(attr.x, 24, 5);

@@ -193,6 +193,7 @@ private:
         u32 BlendCnt, StandardColorEffect;
         u32 EVA, EVB, EVY;
         u32 BGNumMask[4];
+        u32 LayerScales[4]; // New: upscale factors for each BG layer (usually 1, except for 3D)
         u32 Window[192*4];
     };
     const u32 ComposeUniformSize = (sizeof(ComposeUniform) + DK_UNIFORM_BUF_ALIGNMENT - 1) & ~(DK_UNIFORM_BUF_ALIGNMENT - 1);

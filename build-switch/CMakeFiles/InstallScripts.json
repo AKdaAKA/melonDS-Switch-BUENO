@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/cmake_install.cmake",
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/cmake_install.cmake",
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/cmake_install.cmake",
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/externals/cmake_install.cmake",
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/src/cmake_install.cmake",
+		"/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/frontend/switch/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

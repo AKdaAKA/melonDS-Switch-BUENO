@@ -27,6 +27,7 @@ layout (std140, binding = 0) uniform ComposeUniform
     uint EVA, EVB, EVY;
 
     uint BGNumMask0, BGNumMask1, BGNumMask2, BGNumMask3;
+    uint LayerScales[4];
     uvec4 Window[192];
 };
 
@@ -109,10 +110,10 @@ void main()
     if (uint(position.x) >= (window.w & 0xFFFFU) && uint(position.x) < (window.w >> 16))
         winAttr = window.y;
 
-    uint bgLayer0 = texelFetch(BGLayer0, position, 0).r;
-    uint bgLayer1 = texelFetch(BGLayer1, position, 0).r;
-    uint bgLayer2 = texelFetch(BGLayer2, position, 0).r;
-    uint bgLayer3 = texelFetch(BGLayer3, position, 0).r;
+    uint bgLayer0 = texelFetch(BGLayer0, position * int(LayerScales[0]), 0).r;
+    uint bgLayer1 = texelFetch(BGLayer1, position * int(LayerScales[1]), 0).r;
+    uint bgLayer2 = texelFetch(BGLayer2, position * int(LayerScales[2]), 0).r;
+    uint bgLayer3 = texelFetch(BGLayer3, position * int(LayerScales[3]), 0).r;
 
     uint spriteLayer = texelFetch(SpriteLayer, position, 0).r;
 

@@ -77,15 +77,19 @@ DekoRenderer::DekoRenderer() :
             IntermedFramebufferMemory.Offset + intermedFbLayout.getSize() * i);
     }
 
-    // _3DFramebuffer: allocated at native 256x192 (same format as intermediate FBs).
+    // _3DFramebuffer: allocated at 1024x768 (max 4x upscale).
     // The GPU3D renderer writes its upscaled output here via the FinalPass shader.
-    // Note: this is at native size because GPU3D_Deko handles upscaling internally;
-    // the 2D compositor reads it at native coords but the GPU3D pass has already
-    // written an upscaled image into the buffer that GPU3D owns.
-    _3DFramebufferMemory = Gfx::TextureHeap->Alloc(intermedFbLayout.getSize(), intermedFbLayout.getAlignment());
-    _3DFramebuffer.initialize(intermedFbLayout, Gfx::TextureHeap->MemBlock, _3DFramebufferMemory.Offset);
-    UPSCALE_LOG2D("[GPU2D::Init] _3DFramebuffer allocated at 256x192 (R32_Uint), size=%zu bytes\n",
-        (size_t)intermedFbLayout.getSize());
+    // We always allocate at max size (3MB) to avoid re-allocation during runtime.
+    dk::ImageLayout _3DfbLayout;
+    dk::ImageLayoutMaker{Gfx::Device}
+        .setDimensions(256 * 4, 192 * 4)
+        .setFlags(DkImageFlags_UsageRender|DkImageFlags_UsageLoadStore|DkImageFlags_Usage2DEngine)
+        .setFormat(DkImageFormat_R32_Uint)
+        .initialize(_3DfbLayout);
+    _3DFramebufferMemory = Gfx::TextureHeap->Alloc(_3DfbLayout.getSize(), _3DfbLayout.getAlignment());
+    _3DFramebuffer.initialize(_3DfbLayout, Gfx::TextureHeap->MemBlock, _3DFramebufferMemory.Offset);
+    UPSCALE_LOG2D("[GPU2D::Init] _3DFramebuffer allocated at 1024x768 (R32_Uint), size=%zu bytes\n",
+        (size_t)_3DfbLayout.getSize());
 
     dk::ImageLayout objWindowLayout;
     dk::ImageLayoutMaker{Gfx::Device}
@@ -2032,15 +2036,19 @@ void DekoRenderer::ComposeBGOBJ()
             if (!(region.DispCnt & (1<<(bgOrder[i]+8))))
             {
                 textureHandleIdx[i] = descriptorOffset_DisabledBG;
+                composeUniform.LayerScales[i] = 1;
             }
             else if (bgOrder[i] == 0 && CurUnit->Num == 0 && region.DispCnt & (1<<3))
             {
                 textureHandleIdx[i] = descriptorOffset_3DFramebuffer;
+                // Get upscale factor from GPU3D. This assumes GPU3D scale matches our current scale.
+                composeUniform.LayerScales[i] = (u32)GPU3D::CurrentRenderer->GetUpscaleFactor();
             }
             else
             {
                 textureHandleIdx[i] = descriptorOffset_IntermedFb +
                     fb_BG0 + fb_Count * CurUnit->Num + bgOrder[i];
+                composeUniform.LayerScales[i] = 1;
             }
 
             composeUniform.BGNumMask[i] = 1 << bgOrder[i];

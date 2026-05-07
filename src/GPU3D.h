@@ -153,6 +153,7 @@ public:
     const bool Accelerated;
 
     virtual void SetRenderSettings(GPU::RenderSettings& settings) = 0;
+    virtual u32 GetUpscaleFactor() { return 1; }
 
     virtual void VCount144() {};
 

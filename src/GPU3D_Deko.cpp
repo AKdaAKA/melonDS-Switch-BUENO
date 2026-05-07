@@ -232,6 +232,11 @@ void DekoRenderer::SetRenderSettings(GPU::RenderSettings& settings)
     UPSCALE_LOG("[SetRenderSettings] Scale changed: %d -> %d\n", prevScale, CurrentUpscaleFactor);
 }
 
+u32 DekoRenderer::GetUpscaleFactor()
+{
+    return CurrentUpscaleFactor;
+}
+
 void DekoRenderer::VCount144()
 {
 

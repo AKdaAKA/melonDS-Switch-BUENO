@@ -1,0 +1,17 @@
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/CMakeFiles/rebuild_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/CMakeFiles/core.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/CMakeFiles/rebuild_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/CMakeFiles/rebuild_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/externals/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/externals/CMakeFiles/rebuild_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/src/CMakeFiles/teakra.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/src/CMakeFiles/teakra_c.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/src/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/teakra/src/CMakeFiles/rebuild_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/frontend/switch/CMakeFiles/melonDS.elf.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/frontend/switch/CMakeFiles/melonDS.nro.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/frontend/switch/CMakeFiles/edit_cache.dir
+/Users/aakashbhagavathi/MeloDS Bueno LATEST/build-switch/src/frontend/switch/CMakeFiles/rebuild_cache.dir

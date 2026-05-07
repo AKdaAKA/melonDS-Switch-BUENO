@@ -1,0 +1,2 @@
+/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ar qc libteakra_c.a CMakeFiles/teakra_c.dir/disassembler_c.cpp.obj CMakeFiles/teakra_c.dir/teakra_c.cpp.obj
+/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc-ranlib libteakra_c.a
